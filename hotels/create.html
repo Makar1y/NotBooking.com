@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>NotBooking.com</title>
+  <link href="style.css" rel="stylesheet" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="name">
+      <a href="/">NOTBOOKING.COM</a>
+    </div>
+    <div class="left-header">
+      <div class="nav-buttons">
+        <a href="/">HOME</a>
+      </div>
+      <div class="nav-buttons">
+        <a href="/hotels">HOTELS</a>
+      </div>
+      <div class="nav-buttons">
+        <a href="/booked">BOOKED</a>
+      </div>
+      <div class="nav-buttons">
+        <a href="/login">LOGIN</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="left-section">
+      <h2>Create listing</h2>
+      <form>
+        <label for="hotel-name">Hotel name</label>
+        <input type="text" id="hotel-name" placeholder="Enter hotel name">
+
+        <label for="hotel-location">Hotel location</label>
+        <input type="select" id="hotel-location" placeholder="Select hotel location">
+
+        <label for="hotel-orbit">Hotel orbit</label>
+        <input type="select" id="hotel-orbit" placeholder="Select hotel orbit">
+
+        <label for="hotel-description">Hotel description</label>
+        <input type="text" id="hotel-description" placeholder="Enter hotel description">
+
+        <label for="hotel-price">Hotel price</label>
+        <input type="text" id="hotel-price" placeholder="Enter hotel price">
+
+        <label for="hotel-amenities">Hotel amenities</label>
+        <input type="text" id="hotel-amenities" placeholder="Enter hotel amenities">
+
+        <label for="hotel-image">Hotel image</label>
+        <input type="file" id="hotel-image" placeholder="Upload hotel images" accept="image/*">
+
+        <input type="submit" value="Create listing">
+      </form>
+    </section>
+    <section class="right-section">
+      <h2>Preview</h2>
+      <div class="image-preview">
+        Hotel image preview
+      </div>
+      <div class="preview-details">
+        <div class="hotel-name">
+          Hotel name
+        </div>
+        <div class="location">
+          <span>Planet</span> / <span>Orbit</span>
+        </div>
+        <div class="hotel-price">
+          00.00€ / 24h
+        </div>
+        <div class="hotel-amenities">
+          <span>gym</span><span>pool</span><span>cinema</span>
+        </div>
+        <div class="hotel-description">
+          Hotel description...
+        </div>
+        <div class="button">
+          <button>Details</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="glass">
+    <p>&copy; 2025 NotBooking.com</p>
+  </footer>
+</body>
+
+</html>

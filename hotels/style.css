@@ -1,0 +1,54 @@
+body{
+  background-image: url(/media/create/background.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.header{
+  margin: 20px 40px 0px 40px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.name a{
+  font-size: 35px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.left-header{
+  display: flex;
+}
+
+.nav-buttons a {
+  font-size: 15px;
+  margin: 0 40px 0 40px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.name a, .nav-buttons a, .title-text,
+.featured-hotels-text, .hotel-text {
+  color: white;
+  text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px blue,
+    0 0 82px blue,
+    0 0 92px blue,
+    0 0 102px blue,
+    0 0 151px blue;
+}
+
+footer {
+    text-align: center;
+    padding: 30px 0;
+    font-size: 16px;
+    border-top: 1px solid #334155;
+    margin-top: 40px;
+}
