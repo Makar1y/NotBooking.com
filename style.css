@@ -1,0 +1,148 @@
+body{
+  background-image: url(Images/background.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.header{
+  margin: 20px 40px 0px 40px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.name{
+  font-size: 35px;
+  cursor: pointer;
+}
+
+.left-header{
+  display: flex;
+}
+
+.nav-buttons{
+  font-size: 15px;
+  margin: 0 40px 0 40px;
+  cursor: pointer;
+}
+
+.title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-text{
+  font-size: 70px;
+}
+
+.selections{
+  background: rgba(255, 255, 255, 0.01);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3); 
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid;
+  width: 600px;
+  margin: 0 auto; 
+  padding: 15px;
+  border-radius: 5px;
+  border-color: rgb(31, 113, 190);
+  border-width: 2px;
+}
+
+.selections select,
+.date select {
+  color: white;
+}
+
+select{
+  background: transparent;
+}
+
+.date{
+  background: transparent;
+  color: white;
+}
+
+.date,
+.orbit,
+.planet,
+.search_button{
+  padding: 5px;
+  width: 120px;
+  border-radius: 5px;
+  border-color: rgb(31, 113, 190);
+  border-width: 2px;
+}
+
+.search_button{
+  background: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+.featured-hotels{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.featured-hotels-text{
+  font-size: 30px;
+}
+
+.hotel{
+  position: relative;
+  border: 1px solid;
+  border-radius: 15px;
+  border-color: rgb(31, 113, 190);
+  border-width: 2px;
+  width: 180px;
+  height: 160px;
+  cursor: pointer;
+}
+
+.hotel-image{
+  width: 180px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.hotel-text{
+  position: absolute;
+  bottom: -10px;             
+  left: 50%;               
+  transform: translateX(-50%);  
+  font-size: 20px;
+  color: white;   
+  background: rgba(0,0,0,0.5); 
+  width: 100%;          
+  text-align: center;    
+  padding: 5px 0;  
+  box-sizing: border-box;
+}
+
+.hotels{
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.name, .nav-buttons, .title-text,
+.featured-hotels-text, .hotel-text {
+  color: white;
+  text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px blue,
+    0 0 82px blue,
+    0 0 92px blue,
+    0 0 102px blue,
+    0 0 151px blue;
+}
