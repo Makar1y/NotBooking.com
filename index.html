@@ -1,70 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title></title>
   <link href="style.css" rel="stylesheet" />
 </head>
-  <body>
-    <header class="header">
-      <div class="name">
-        NOTBOOKING.COM
-      </div>
-      <div class="left-header">
-        <div class="nav-buttons">
-          HOME
-        </div>
-        <div class="nav-buttons">
-          HOTELS
-        </div>
-        <div class="nav-buttons">
-          BOOKED
-        </div>
-        <div class="nav-buttons">
-          LOGIN
-        </div>
-      </div>
-    </header>
-    <div class="title">
-      <p class="title-text">Reserve your space.<p>
+
+<body>
+  <header class="header">
+    <div class="name">
+      NOTBOOKING.COM
     </div>
-    <div class="selections">
-      <select class="planet">
-        <option value="">Select a planet</option>
-        <option value="">Earth</option>
-        <option value="">Mars</option>
-        <option value="">Jupiter</option>
-        <option value="">Saturn</option>
-      </select>
-      <select class="orbit">
-        <option value="">Orbit level</option>
-        <option value="">1</option>
-        <option value="">2</option>
-        <option value="">3</option>
-        <option value="">4</option>
-        <option value="">5</option>
-        <option value="">67</option>
-        <option value="">8</option>
-      </select>
-      <input class="date" type="date" id="birthday" name="birthday">
-      <button class="search_button">Search</button>
-    </div>
-    <div class="featured-hotels">
-      <p class="featured-hotels-text">Featured Space Hotels<p>
-    </div>
-    <div class="hotels">
-      <div class="hotel">
-        <img class="hotel-image" src="Images/hotel1.png">
-        <p class="hotel-text">Lunar place</p>
+    <div class="left-header">
+      <div class="nav-buttons">
+        HOME
       </div>
-      <div class="hotel">
-        <img class="hotel-image" src="Images/hotel2.jpg">
-        <p class="hotel-text">Mars orbit resort</p>
+      <div class="nav-buttons">
+        HOTELS
       </div>
-      <div class="hotel">
-        <img class="hotel-image" src="Images/hotel3.jpg">
-        <p class="hotel-text">Europa Skysuite</p>
+      <div class="nav-buttons">
+        BOOKED
+      </div>
+      <div class="nav-buttons">
+        LOGIN
       </div>
     </div>
-  </body>
+  </header>
+  <div class="title">
+    <p class="title-text">Reserve your space.
+    <p>
+  </div>
+  <section class="hotels-list">
+    <div class="search-line">
+      <h2>Available hotels</h2>
+      <div class="selections">
+        <select class="planet">
+          <option value="">Select a planet</option>
+          <option value="">Earth</option>
+          <option value="">Mars</option>
+          <option value="">Jupiter</option>
+          <option value="">Saturn</option>
+        </select>
+        <select class="orbit">
+          <option value="">Orbit level</option>
+          <option value="">1</option>
+          <option value="">2</option>
+          <option value="">3</option>
+          <option value="">4</option>
+          <option value="">5</option>
+          <option value="">67</option>
+          <option value="">8</option>
+        </select>
+        <input class="date" type="date" id="birthday" name="birthday">
+        <input class="search-text" type="text" id="search-text" placeholder="Enter hotel name...">
+        <button class="search_button">Search</button>
+      </div>
+    </div>
+    <div class="hotels-grid">
+      <div class="hotel glass">
+        <div class="hotel-image">
+          <img src="/Images/hotel1.png" alt="Hotel image">
+        </div>
+
+        <div class="hotel-details glass">
+          <div class="detail hotel-name">Earth circle</div>
+          <div class="detail location">Earth</div>
+          <div class="detail hotel-price">20 000.99€ / 24h</div>
+          <div class="detail hotel-amenities">
+            <span>amenity 1</span><span>amenity 2</span>
+          </div>
+          <div class="detail hotel-description">
+            <p>aborum proident exercitation cupidatat deserunt consectetur magna consectetur ut laborum fugiat Lorem aute. In magna aliqua nisi est fugiat Lorem velit qui Lorem. Sint proident magna qui sit exercitation non irure esse deserunt. Amet deserunt magna amet eiusmod aliqua non aliquip consequat quis est non duis nostrud velit. Pariatur aute ut excepteur magna eu labore ea irure fugiat sunt anim. Sunt irure Lorem labore enim veniam do laboris officia nisi. Non labore exercitation ipsum eu dolor aliqua consequat dolor est.</p></div>
+          <div class="detail button"><button>Details</button></div>
+        </div>
+      </div>
+      <div class="hotel glass">
+        <div class="hotel-image">
+          <img src="/Images/hotel2.jpg" alt="Hotel image">
+        </div>
+
+        <div class="hotel-details glass">
+          <div class="detail hotel-name">StarOtel</div>
+          <div class="detail location">Earth</div>
+          <div class="detail hotel-price">36 999.99€ / 24h</div>
+          <div class="detail hotel-amenities">
+            <span>amenity 1</span><span>amenity 2</span>
+          </div>
+          <div class="detail hotel-description">Hotel description...</div>
+          <div class="detail button"><button>Details</button></div>
+        </div>
+      </div>
+      <div class="hotel glass">
+        <div class="hotel-image">
+          <img src="/Images/hotel3.jpg" alt="Hotel image">
+        </div>
+
+        <div class="hotel-details glass">
+          <div class="detail hotel-name">Earth circle - new horizon</div>
+          <div class="detail location">Earth</div>
+          <div class="detail hotel-price">50 999.99€ / 24h</div>
+          <div class="detail hotel-amenities">
+            <span>amenity 1</span><span>amenity 2</span>
+          </div>
+          <div class="detail hotel-description">Hotel description...</div>
+          <div class="detail button"><button>Details</button></div>
+        </div>
+      </div>
+      <div class="hotel glass">
+        <div class="hotel-image">
+          <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c3c11a4e-961b-47ec-8f72-acebce4c4562/dhdx0m1-bf871bae-4c6f-49a6-a54c-33935798e433.png/v1/fill/w_894,h_894,q_70,strp/cozy_interior_of_room_inside_futuristic_spaceship_by_coolarts223_dhdx0m1-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi9jM2MxMWE0ZS05NjFiLTQ3ZWMtOGY3Mi1hY2ViY2U0YzQ1NjIvZGhkeDBtMS1iZjg3MWJhZS00YzZmLTQ5YTYtYTU0Yy0zMzkzNTc5OGU0MzMucG5nIiwiaGVpZ2h0IjoiPD05MDAiLCJ3aWR0aCI6Ijw9OTAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLndhdGVybWFyayJdLCJ3bWsiOnsicGF0aCI6Ii93bS9jM2MxMWE0ZS05NjFiLTQ3ZWMtOGY3Mi1hY2ViY2U0YzQ1NjIvY29vbGFydHMyMjMtNC5wbmciLCJvcGFjaXR5Ijo5NSwicHJvcG9ydGlvbnMiOjAuNDUsImdyYXZpdHkiOiJjZW50ZXIifX0.0DqAD_Lt48faivMqQG2sp2FGlhH6J3leY0bpP-AHm64" alt="Hotel image">
+        </div>
+
+        <div class="hotel-details glass">
+          <div class="detail hotel-name">Red hotel</div>
+          <div class="detail location"><span>Mars</span></div>
+          <div class="detail hotel-price">1 549 999.98€ / 24h</div>
+          <div class="detail hotel-amenities">
+            <span>amenity 1</span><span>amenity 2</span>
+          </div>
+          <div class="detail hotel-description">Hotel description...</div>
+          <div class="detail button"><button>Details</button></div>
+        </div>
+      </div>
+      <div class="hotel glass">
+        <div class="hotel-image">
+          <img src="/Images/hotel4.jpg" alt="Hotel image">
+        </div>
+
+        <div class="hotel-details glass">
+          <div class="detail hotel-name">Moon land</div>
+          <div class="detail location"><span>Planet</span></div>
+          <div class="detail hotel-price">00.00€ / 24h</div>
+          <div class="detail hotel-amenities">
+            <span>amenity 1</span><span>amenity 2</span>
+          </div>
+          <div class="detail hotel-description">Hotel description...</div>
+          <div class="detail button"><button>Details</button></div>
+        </div>
+      </div>
+      <div class="hotel glass">
+        <div class="hotel-image">
+          <img src="/Images/hotel5.jpg" alt="Hotel image">
+        </div>
+
+        <div class="hotel-details glass">
+          <div class="detail hotel-name">Hotel name</div>
+          <div class="detail location"><span>Planet</span></div>
+          <div class="detail hotel-price">00.00€ / 24h</div>
+          <div class="detail hotel-amenities">
+            <span>amenity 1</span><span>amenity 2</span>
+          </div>
+          <div class="detail hotel-description">Hotel description...</div>
+          <div class="detail button"><button>Details</button></div>
+        </div>
+      </div>
+      <div class="hotel glass">
+        <div class="hotel-image">
+          <img src="" alt="Hotel image">
+        </div>
+
+        <div class="hotel-details glass">
+          <div class="detail hotel-name">Hotel name</div>
+          <div class="detail location"><span>Planet</span></div>
+          <div class="detail hotel-price">00.00€ / 24h</div>
+          <div class="detail hotel-amenities">
+            <span>amenity 1</span><span>amenity 2</span>
+          </div>
+          <div class="detail hotel-description">Hotel description...</div>
+          <div class="detail button"><button>Details</button></div>
+        </div>
+      </div>
+      <div class="hotel glass">
+        <div class="hotel-image">
+          <img src="" alt="Hotel image">
+        </div>
+
+        <div class="hotel-details glass">
+          <div class="detail hotel-name">Hotel name</div>
+          <div class="detail location"><span>Planet</span></div>
+          <div class="detail hotel-price">00.00€ / 24h</div>
+          <div class="detail hotel-amenities">
+            <span>amenity 1</span><span>amenity 2</span>
+          </div>
+          <div class="detail hotel-description">Hotel description...</div>
+          <div class="detail button"><button>Details</button></div>
+        </div>
+      </div>
+      <div class="hotel glass">
+        <div class="hotel-image">
+          <img src="https://cdn2.picryl.com/photo/2021/12/31/iss-with-the-sun-emerging-over-the-curvature-of-the-earth-2f5dcb-1024.jpg" alt="Hotel image">
+        </div>
+
+        <div class="hotel-details glass">
+          <div class="detail hotel-name">Hotel name</div>
+          <div class="detail location"><span>Planet</span></div>
+          <div class="detail hotel-price">00.00€ / 24h</div>
+          <div class="detail hotel-amenities">
+
+          </div>
+          <div class="detail hotel-description">Hotel description...</div>
+          <div class="detail button"><button>Details</button></div>
+        </div>
+      </div>
+      <div class="hotel glass">
+        <div class="hotel-image">
+          <img src="https://easy-peasy.ai/cdn-cgi/image/quality=95,format=auto,width=800/https://media.easy-peasy.ai/67a4bb11-3ac0-4e0d-ba5e-4a68efb5ef60/37feb86c-ea78-43da-913a-6b159ac28b23.png" alt="Hotel image">
+        </div>
+
+        <div class="hotel-details glass">
+          <div class="detail hotel-name">Hotel name</div>
+          <div class="detail location"><span>Planet</span></div>
+          <div class="detail hotel-price">00.00€ / 24h</div>
+          <div class="detail hotel-amenities">
+
+          </div>
+          <div class="detail hotel-description">Hotel description...</div>
+          <div class="detail button"><button>Details</button></div>
+        </div>
+      </div>
+      <div class="hotel glass">
+        <div class="hotel-image">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Iranian_Capsule_hotel_1399032511340335620591794.jpg" alt="Hotel image">
+        </div>
+
+        <div class="hotel-details glass">
+          <div class="detail hotel-name">Hotel name</div>
+          <div class="detail location"><span>Planet</span></div>
+          <div class="detail hotel-price">00.00€ / 24h</div>
+          <div class="detail hotel-amenities">
+
+          </div>
+          <div class="detail hotel-description">Hotel description...</div>
+          <div class="detail button"><button>Details</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
 </html>

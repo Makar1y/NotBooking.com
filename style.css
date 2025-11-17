@@ -44,14 +44,26 @@ body{
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.3); 
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1vh;
+  align-self: center;
   border: 1px solid;
-  width: 600px;
-  margin: 0 auto; 
+  width: 90%;
   padding: 15px;
   border-radius: 5px;
   border-color: rgb(31, 113, 190);
   border-width: 2px;
+  margin: auto 0;
+}
+
+.search-text {
+  width: 50%;
+  background: transparent;
+  border-radius: 5px;
+  border-color: rgb(31, 113, 190);
+  border-width: 2px;
+  color: white;
 }
 
 .selections select,
@@ -85,56 +97,7 @@ select{
   cursor: pointer;
 }
 
-.featured-hotels{
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.featured-hotels-text{
-  font-size: 30px;
-}
-
-.hotel{
-  position: relative;
-  border: 1px solid;
-  border-radius: 15px;
-  border-color: rgb(31, 113, 190);
-  border-width: 2px;
-  width: 180px;
-  height: 160px;
-  cursor: pointer;
-}
-
-.hotel-image{
-  width: 180px;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-.hotel-text{
-  position: absolute;
-  bottom: -10px;             
-  left: 50%;               
-  transform: translateX(-50%);  
-  font-size: 20px;
-  color: white;   
-  background: rgba(0,0,0,0.5); 
-  width: 100%;          
-  text-align: center;    
-  padding: 5px 0;  
-  box-sizing: border-box;
-}
-
-.hotels{
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-}
-
-.name, .nav-buttons, .title-text,
-.featured-hotels-text, .hotel-text {
+.name, .nav-buttons, .title-text{
   color: white;
   text-shadow:
     0 0 7px #fff,
@@ -145,4 +108,145 @@ select{
     0 0 92px blue,
     0 0 102px blue,
     0 0 151px blue;
+}
+
+
+/* ------------ HOTELS -------------- */
+.hotels-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3vw;
+  margin: 3vw;
+  color: white;
+}
+
+.search-line {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.search-line h2 {
+  font-size: calc(2em + 2vmin);
+  text-shadow: 0 0 12px #00ffff;
+  color: white;
+  text-align: center;
+}
+
+.hotels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  width: 100%;
+  gap: 1vw;
+}
+
+.hotel {
+  border-radius: 25px;
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+}
+
+.hotel-image {
+  aspect-ratio: 3/2;
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.15);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hotel-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hotel-details {
+  margin-top: 1.5vh;
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+}
+
+
+.hotel-details .hotel-name {
+  font-size: 25px;
+  font-weight: bold;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+}
+
+.hotel-details .hotel-amenities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5vh;
+  overflow: hidden;
+
+  justify-content: flex-start;
+}
+
+.hotel-details .hotel-amenities span {
+  padding: 6px 12px;
+  border-radius: 12px;
+  background: rgba(12, 213, 248, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 1.5vh;
+  letter-spacing: 0.05vw;
+  text-wrap: nowrap;
+}
+
+.hotel-details .location {
+  font-size: 1.5rem;
+  opacity: 0.85;
+  color: #d8faff;
+}
+
+.hotel-details .hotel-price {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 0.2vh;
+  color: #00eaff;
+  text-shadow: 0 0 8px #00eaff;
+}
+
+.hotel-details .hotel-description{
+  max-height: 15vh;
+}
+
+.hotel-details .hotel-description p{
+  font-size: calc(.7em + 0.5vmin);
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines (adjust as needed) */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.hotel-details .button button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: rgba(0, 255, 255, 0.25);
+  color: white;
+  transition: 0.3s;
+}
+
+.hotel-details .button button:hover {
+  background: rgba(0, 255, 255, 0.45);
+  box-shadow: 0 0 12px #00eaff;
+}
+
+.glass {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
 }
