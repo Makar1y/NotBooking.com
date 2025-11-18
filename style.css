@@ -243,3 +243,24 @@ select {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
 }
+
+@media (max-width: 500px) {
+  body {
+    background-attachment: scroll;
+  }
+
+  .selections select,
+  .search-text,
+  .date,
+  .search_button {
+    width: 100%;
+  }
+
+  .hotels-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hotel-details .hotel-description p {
+    -webkit-line-clamp: 4;
+  }
+}
