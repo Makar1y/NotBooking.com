@@ -1,4 +1,4 @@
-body{
+body {
   background-image: url(Images/background.png);
   background-repeat: no-repeat;
   background-position: center;
@@ -6,7 +6,7 @@ body{
   background-size: cover;
 }
 
-.header{
+.header {
   margin: 20px 40px 0px 40px;
   height: 50px;
   display: flex;
@@ -14,35 +14,35 @@ body{
   justify-content: space-between;
 }
 
-.name{
+.name {
   font-size: 35px;
   cursor: pointer;
 }
 
-.left-header{
+.left-header {
   display: flex;
 }
 
-.nav-buttons{
+.nav-buttons {
   font-size: 15px;
   margin: 0 40px 0 40px;
   cursor: pointer;
 }
 
-.title{
+.title {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.title-text{
+.title-text {
   font-size: 70px;
 }
 
-.selections{
+.selections {
   background: rgba(255, 255, 255, 0.01);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3); 
+  border: 1px solid rgba(255, 255, 255, 0.3);
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -71,11 +71,11 @@ body{
   color: white;
 }
 
-select{
+select {
   background: transparent;
 }
 
-.date{
+.date {
   background: transparent;
   color: white;
 }
@@ -83,7 +83,7 @@ select{
 .date,
 .orbit,
 .planet,
-.search_button{
+.search_button {
   padding: 5px;
   width: 120px;
   border-radius: 5px;
@@ -91,25 +91,19 @@ select{
   border-width: 2px;
 }
 
-.search_button{
+.search_button {
   background: transparent;
   color: white;
   cursor: pointer;
 }
 
-.name, .nav-buttons, .title-text{
+.name,
+.nav-buttons,
+.title-text {
   color: white;
-  text-shadow:
-    0 0 7px #fff,
-    0 0 10px #fff,
-    0 0 21px #fff,
-    0 0 42px blue,
-    0 0 82px blue,
-    0 0 92px blue,
-    0 0 102px blue,
-    0 0 151px blue;
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px blue,
+    0 0 82px blue, 0 0 92px blue, 0 0 102px blue, 0 0 151px blue;
 }
-
 
 /* ------------ HOTELS -------------- */
 .hotels-list {
@@ -129,7 +123,7 @@ select{
 
 .search-line h2 {
   font-size: calc(2em + 2vmin);
-  text-shadow: 0 0 12px #00ffff;
+  text-shadow: 0 0 26px #00ffff;
   color: white;
   text-align: center;
 }
@@ -143,7 +137,7 @@ select{
 
 .hotel {
   border-radius: 25px;
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   padding: 15px;
   display: flex;
   flex-direction: column;
@@ -154,7 +148,7 @@ select{
   aspect-ratio: 3/2;
   width: 100%;
   border-radius: 14px;
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -170,13 +164,12 @@ select{
 .hotel-details {
   margin-top: 1.5vh;
   padding: 20px;
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 14px;
   display: flex;
   flex-direction: column;
   gap: 1vh;
 }
-
 
 .hotel-details .hotel-name {
   font-size: 25px;
@@ -217,12 +210,12 @@ select{
   text-shadow: 0 0 8px #00eaff;
 }
 
-.hotel-details .hotel-description{
+.hotel-details .hotel-description {
   max-height: 15vh;
 }
 
-.hotel-details .hotel-description p{
-  font-size: calc(.7em + 0.5vmin);
+.hotel-details .hotel-description p {
+  font-size: calc(0.7em + 0.5vmin);
   display: -webkit-box;
   -webkit-line-clamp: 3; /* number of lines (adjust as needed) */
   -webkit-box-orient: vertical;
@@ -247,6 +240,6 @@ select{
 }
 
 .glass {
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
 }

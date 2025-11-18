@@ -1,281 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <title></title>
-  <link href="style.css" rel="stylesheet" />
-</head>
-
-<body>
-  <header class="header">
-    <div class="name">
-      NOTBOOKING.COM
-    </div>
-    <div class="left-header">
-      <div class="nav-buttons">
-        HOME
+  <body>
+    <header class="header">
+      <div class="name">NOTBOOKING.COM</div>
+      <div class="left-header">
+        <div class="nav-buttons">HOME</div>
+        <div class="nav-buttons">HOTELS</div>
+        <div class="nav-buttons">BOOKED</div>
+        <div class="nav-buttons">LOGIN</div>
       </div>
-      <div class="nav-buttons">
-        HOTELS
+    </header>
+    <div class="title">
+      <p class="title-text">Reserve your space.</p>
+      <p></p>
+    </div>
+
+    <section class="hotels-list">
+      <div class="search-line">
+        <h2>Available hotels</h2>
+        <div class="selections">
+          <select class="planet">
+            <option value="">Select a planet</option>
+            <option value="">Earth</option>
+            <option value="">Mars</option>
+            <option value="">Jupiter</option>
+            <option value="">Moon</option>
+          </select>
+          <select class="orbit">
+            <option value="">Orbit level</option>
+            <option value="">1</option>
+            <option value="">2</option>
+            <option value="">3</option>
+            <option value="">4</option>
+            <option value="">5</option>
+            <option value="">67</option>
+            <option value="">8</option>
+          </select>
+          <input class="date" type="date" id="birthday" name="birthday" />
+          <input
+            class="search-text"
+            type="text"
+            id="search-text"
+            placeholder="Enter hotel name..."
+          />
+          <button class="search_button">Search</button>
+        </div>
       </div>
-      <div class="nav-buttons">
-        BOOKED
+
+      <div class="hotels-grid">
+        <div class="hotel glass">
+          <div class="hotel-image">
+            <img src="/Images/hotel1.png" alt="Hotel image" />
+          </div>
+          <div class="hotel-details glass">
+            <div class="detail hotel-name">Earth Circle</div>
+            <div class="detail location">Earth</div>
+            <div class="detail hotel-price">20 000.99€ / 24h</div>
+            <div class="detail hotel-amenities">
+              <span>Gravity Spa</span><span>360° Earthview Lounge</span
+              ><span>AI Concierge</span><span>Orbital Shuttle Access</span>
+            </div>
+            <div class="detail hotel-description">
+              <p>
+                A serene low-orbit retreat offering uninterrupted panoramic
+                views of Earth’s oceans and continents. Designed for peaceful
+                escapes, Earth Circle blends luxurious silence with cutting-edge
+                comfort.
+              </p>
+            </div>
+            <div class="detail button"><button>Details</button></div>
+          </div>
+        </div>
+
+        <div class="hotel glass">
+          <div class="hotel-image">
+            <img src="/Images/hotel2.jpg" alt="Hotel image" />
+          </div>
+          <div class="hotel-details glass">
+            <div class="detail hotel-name">StarOtel</div>
+            <div class="detail location">Earth</div>
+            <div class="detail hotel-price">36 999.99€ / 24h</div>
+            <div class="detail hotel-amenities">
+              <span>Zero-G Gym</span><span>Celestial Bar</span
+              ><span>Holodeck Entertainment</span
+              ><span>Galaxy-Class Suites</span>
+            </div>
+            <div class="detail hotel-description">
+              <p>
+                A premium orbital hotel featuring immersive holosuites and a
+                zero-gravity wellness wing. Perfect for travelers seeking
+                high-end Earth-orbit luxury with futuristic recreation.
+              </p>
+            </div>
+            <div class="detail button"><button>Details</button></div>
+          </div>
+        </div>
+
+        <div class="hotel glass">
+          <div class="hotel-image">
+            <img src="/Images/hotel3.jpg" alt="Hotel image" />
+          </div>
+          <div class="hotel-details glass">
+            <div class="detail hotel-name">Earth Circle – New Horizon</div>
+            <div class="detail location">Earth</div>
+            <div class="detail hotel-price">50 999.99€ / 24h</div>
+            <div class="detail hotel-amenities">
+              <span>Horizon Deck</span><span>Skyfall Restaurant</span
+              ><span>Private Pods</span><span>Plasma-Window Viewports</span>
+            </div>
+            <div class="detail hotel-description">
+              <p>
+                An elite expansion of the original Earth Circle, New Horizon
+                offers maximum privacy, exclusive dining, and breathtaking
+                sunrise-over-Earth experiences.
+              </p>
+            </div>
+            <div class="detail button"><button>Details</button></div>
+          </div>
+        </div>
+
+        <div class="hotel glass">
+          <div class="hotel-image">
+            <img
+              src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c3c11a4e-961b-47ec-8f72-acebce4c4562/dhdx0m1-bf871bae-4c6f-49a6-a54c-33935798e433.png/v1/fill/w_894,h_894,q_70,strp/cozy_interior_of_room_inside_futuristic_spaceship_by_coolarts223_dhdx0m1-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi9jM2MxMWE0ZS05NjFiLTQ3ZWMtOGY3Mi1hY2ViY2U0YzQ1NjIvZGhkeDBtMS1iZjg3MWJhZS00YzZmLTQ5YTYtYTU0Yy0zMzkzNTc5OGU0MzMucG5nIiwiaGVpZ2h0IjoiPD05MDAiLCJ3aWR0aCI6Ijw9OTAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLndhdGVybWFyayJdLCJ3bWsiOnsicGF0aCI6Ii93bS9jM2MxMWE0ZS05NjFiLTQ3ZWMtOGY3Mi1hY2ViY2U0YzQ1NjIvY29vbGFydHMyMjMtNC5wbmciLCJvcGFjaXR5Ijo5NSwicHJvcG9ydGlvbnMiOjAuNDUsImdyYXZpdHkiOiJjZW50ZXIifX0.0DqAD_Lt48faivMqQG2sp2FGlhH6J3leY0bpP-AHm64"
+              alt="Hotel image"
+            />
+          </div>
+          <div class="hotel-details glass">
+            <div class="detail hotel-name">Red Hotel</div>
+            <div class="detail location">Mars</div>
+            <div class="detail hotel-price">1 549 999.98€ / 24h</div>
+            <div class="detail hotel-amenities">
+              <span>Mars Surface Tours</span><span>Dome Gardens</span
+              ><span>Nano-Dust Air Filters</span><span>Hover Taxi Access</span>
+            </div>
+            <div class="detail hotel-description">
+              <p>
+                A luxurious habitat overlooking the vast Martian plains. Known
+                for its biodome gardens and premium red-sand excursions.
+              </p>
+            </div>
+            <div class="detail button"><button>Details</button></div>
+          </div>
+        </div>
+
+        <div class="hotel glass">
+          <div class="hotel-image">
+            <img src="/Images/hotel4.jpg" alt="Hotel image" />
+          </div>
+          <div class="hotel-details glass">
+            <div class="detail hotel-name">Moon Land</div>
+            <div class="detail location">Moon</div>
+            <div class="detail hotel-price">79 999.99€ / 24h</div>
+            <div class="detail hotel-amenities">
+              <span>Lunar Gravity Park</span><span>Crater Spa</span
+              ><span>Stargazing Deck</span><span>Rover Rentals</span>
+            </div>
+            <div class="detail hotel-description">
+              <p>
+                A peaceful lunar hotel built inside a natural crater. Enjoy
+                reduced-gravity experiences and unmatched stargazing.
+              </p>
+            </div>
+            <div class="detail button"><button>Details</button></div>
+          </div>
+        </div>
+
+        <div class="hotel glass">
+          <div class="hotel-image">
+            <img src="/Images/hotel5.jpg" alt="Hotel image" />
+          </div>
+          <div class="hotel-details glass">
+            <div class="detail hotel-name">Moon park</div>
+            <div class="detail location">Moon</div>
+            <div class="detail hotel-price">980 499.00€ / 24h</div>
+            <div class="detail hotel-amenities">
+              <span>Bar</span><span>Panorama views</span>
+            </div>
+            <div class="detail hotel-description">
+              <p>
+                Commodo reprehenderit in incididunt do fugiat exercitation
+                incididunt laboris. Sit cupidatat nostrud tempor sint consequat
+                nisi irure cupidatat. Laborum esse culpa cillum cillum do non
+                sit ad laborum sint reprehenderit exercitation pariatur id.
+                Mollit cillum commodo magna irure dolore ad nisi anim. Fugiat
+                velit veniam dolor duis laborum exercitation elit labore irure
+                laborum consectetur irure commodo commodo. Occaecat deserunt
+                ipsum consectetur sunt sunt tempor incididunt nisi.
+              </p>
+            </div>
+            <div class="detail button"><button>Details</button></div>
+          </div>
+        </div>
+
+        <div class="hotel glass">
+          <div class="hotel-image">
+            <img
+              src="https://cdn2.picryl.com/photo/2021/12/31/iss-with-the-sun-emerging-over-the-curvature-of-the-earth-2f5dcb-1024.jpg"
+              alt="Hotel image"
+            />
+          </div>
+          <div class="hotel-details glass">
+            <div class="detail hotel-name">Europa Crystal Haven</div>
+            <div class="detail location">Earth</div>
+            <div class="detail hotel-price">499 900.00€ / 24h</div>
+            <div class="detail hotel-amenities">
+              <span>Ice-Cave Tours</span><span>Subsurface Ocean VR Dive</span
+              ><span>Cryo Spas</span><span>Laser-Heated Pools</span>
+            </div>
+            <div class="detail hotel-description">
+              <p>
+                A shimmering ice-themed hotel built beneath Europa’s frozen
+                surface, offering crystalline corridors and advanced thermal
+                luxuries.
+              </p>
+            </div>
+            <div class="detail button"><button>Details</button></div>
+          </div>
+        </div>
+
+        <div class="hotel glass">
+          <div class="hotel-image">
+            <img
+              src="https://easy-peasy.ai/cdn-cgi/image/quality=95,format=auto,width=800/https://media.easy-peasy.ai/67a4bb11-3ac0-4e0d-ba5e-4a68efb5ef60/37feb86c-ea78-43da-913a-6b159ac28b23.png"
+              alt="Hotel image"
+            />
+          </div>
+          <div class="hotel-details glass">
+            <div class="detail hotel-name">Blue Infinity Retreat</div>
+            <div class="detail location">Neptune</div>
+            <div class="detail hotel-price">2 300 000.00€ / 24h</div>
+            <div class="detail hotel-amenities">
+              <span>Storm-Shield Dome</span><span>Deep-Blue Restaurant</span
+              ><span>Cloud-Drift Lounge</span><span>Cosmic Sauna</span>
+            </div>
+            <div class="detail hotel-description">
+              <p>
+                An ultra-luxury resort surrounded by Neptune’s deep blue
+                atmosphere. Famous for its tranquil ambiance and rarefied views.
+              </p>
+            </div>
+            <div class="detail button"><button>Details</button></div>
+          </div>
+        </div>
+
+        <div class="hotel glass">
+          <div class="hotel-image">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/5/55/Iranian_Capsule_hotel_1399032511340335620591794.jpg"
+              alt="Hotel image"
+            />
+          </div>
+          <div class="hotel-details glass">
+            <div class="detail hotel-name">Orbital Haven Station</div>
+            <div class="detail location">Deep Space Orbit</div>
+            <div class="detail hotel-price">299 999.00€ / 24h</div>
+            <div class="detail hotel-amenities">
+              <span>Zero-G Nightclub</span><span>Interstellar Docking</span
+              ><span>AI Butler Service</span><span>Starlight Atrium</span>
+            </div>
+            <div class="detail hotel-description">
+              <p>
+                A central luxury hub for travelers crossing the solar system.
+                Known for its panoramic star atrium and futuristic lounge
+                experiences.
+              </p>
+            </div>
+            <div class="detail button"><button>Details</button></div>
+          </div>
+        </div>
       </div>
-      <div class="nav-buttons">
-        LOGIN
-      </div>
-    </div>
-  </header>
-  <div class="title">
-    <p class="title-text">Reserve your space.
-    <p>
-  </div>
-  <section class="hotels-list">
-    <div class="search-line">
-      <h2>Available hotels</h2>
-      <div class="selections">
-        <select class="planet">
-          <option value="">Select a planet</option>
-          <option value="">Earth</option>
-          <option value="">Mars</option>
-          <option value="">Jupiter</option>
-          <option value="">Moon</option>
-        </select>
-        <select class="orbit">
-          <option value="">Orbit level</option>
-          <option value="">1</option>
-          <option value="">2</option>
-          <option value="">3</option>
-          <option value="">4</option>
-          <option value="">5</option>
-          <option value="">67</option>
-          <option value="">8</option>
-        </select>
-        <input class="date" type="date" id="birthday" name="birthday">
-        <input class="search-text" type="text" id="search-text" placeholder="Enter hotel name...">
-        <button class="search_button">Search</button>
-      </div>
-    </div>
-    <div class="hotels-grid">
-      <div class="hotel glass">
-  <div class="hotel-image">
-    <img src="/Images/hotel1.png" alt="Hotel image">
-  </div>
-  <div class="hotel-details glass">
-    <div class="detail hotel-name">Earth Circle</div>
-    <div class="detail location">Earth</div>
-    <div class="detail hotel-price">20 000.99€ / 24h</div>
-    <div class="detail hotel-amenities">
-      <span>Gravity Spa</span><span>360° Earthview Lounge</span><span>AI Concierge</span><span>Orbital Shuttle Access</span>
-    </div>
-    <div class="detail hotel-description">
-      <p>A serene low-orbit retreat offering uninterrupted panoramic views of Earth’s oceans and continents. Designed for peaceful escapes, Earth Circle blends luxurious silence with cutting-edge comfort.</p>
-    </div>
-    <div class="detail button"><button>Details</button></div>
-  </div>
-</div>
-
-<div class="hotel glass">
-  <div class="hotel-image">
-    <img src="/Images/hotel2.jpg" alt="Hotel image">
-  </div>
-  <div class="hotel-details glass">
-    <div class="detail hotel-name">StarOtel</div>
-    <div class="detail location">Earth</div>
-    <div class="detail hotel-price">36 999.99€ / 24h</div>
-    <div class="detail hotel-amenities">
-      <span>Zero-G Gym</span><span>Celestial Bar</span><span>Holodeck Entertainment</span><span>Galaxy-Class Suites</span>
-    </div>
-    <div class="detail hotel-description">
-      <p>A premium orbital hotel featuring immersive holosuites and a zero-gravity wellness wing. Perfect for travelers seeking high-end Earth-orbit luxury with futuristic recreation.</p>
-    </div>
-    <div class="detail button"><button>Details</button></div>
-  </div>
-</div>
-
-<div class="hotel glass">
-  <div class="hotel-image">
-    <img src="/Images/hotel3.jpg" alt="Hotel image">
-  </div>
-  <div class="hotel-details glass">
-    <div class="detail hotel-name">Earth Circle – New Horizon</div>
-    <div class="detail location">Earth</div>
-    <div class="detail hotel-price">50 999.99€ / 24h</div>
-    <div class="detail hotel-amenities">
-      <span>Horizon Deck</span><span>Skyfall Restaurant</span><span>Private Pods</span><span>Plasma-Window Viewports</span>
-    </div>
-    <div class="detail hotel-description">
-      <p>An elite expansion of the original Earth Circle, New Horizon offers maximum privacy, exclusive dining, and breathtaking sunrise-over-Earth experiences.</p>
-    </div>
-    <div class="detail button"><button>Details</button></div>
-  </div>
-</div>
-
-<div class="hotel glass">
-  <div class="hotel-image">
-    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c3c11a4e-961b-47ec-8f72-acebce4c4562/dhdx0m1-bf871bae-4c6f-49a6-a54c-33935798e433.png/v1/fill/w_894,h_894,q_70,strp/cozy_interior_of_room_inside_futuristic_spaceship_by_coolarts223_dhdx0m1-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi9jM2MxMWE0ZS05NjFiLTQ3ZWMtOGY3Mi1hY2ViY2U0YzQ1NjIvZGhkeDBtMS1iZjg3MWJhZS00YzZmLTQ5YTYtYTU0Yy0zMzkzNTc5OGU0MzMucG5nIiwiaGVpZ2h0IjoiPD05MDAiLCJ3aWR0aCI6Ijw9OTAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLndhdGVybWFyayJdLCJ3bWsiOnsicGF0aCI6Ii93bS9jM2MxMWE0ZS05NjFiLTQ3ZWMtOGY3Mi1hY2ViY2U0YzQ1NjIvY29vbGFydHMyMjMtNC5wbmciLCJvcGFjaXR5Ijo5NSwicHJvcG9ydGlvbnMiOjAuNDUsImdyYXZpdHkiOiJjZW50ZXIifX0.0DqAD_Lt48faivMqQG2sp2FGlhH6J3leY0bpP-AHm64" alt="Hotel image">
-  </div>
-  <div class="hotel-details glass">
-    <div class="detail hotel-name">Red Hotel</div>
-    <div class="detail location">Mars</div>
-    <div class="detail hotel-price">1 549 999.98€ / 24h</div>
-    <div class="detail hotel-amenities">
-      <span>Mars Surface Tours</span><span>Dome Gardens</span><span>Nano-Dust Air Filters</span><span>Hover Taxi Access</span>
-    </div>
-    <div class="detail hotel-description">
-      <p>A luxurious habitat overlooking the vast Martian plains. Known for its biodome gardens and premium red-sand excursions.</p>
-    </div>
-    <div class="detail button"><button>Details</button></div>
-  </div>
-</div>
-
-<div class="hotel glass">
-  <div class="hotel-image">
-    <img src="/Images/hotel4.jpg" alt="Hotel image">
-  </div>
-  <div class="hotel-details glass">
-    <div class="detail hotel-name">Moon Land</div>
-    <div class="detail location">Moon</div>
-    <div class="detail hotel-price">79 999.99€ / 24h</div>
-    <div class="detail hotel-amenities">
-      <span>Lunar Gravity Park</span><span>Crater Spa</span><span>Stargazing Deck</span><span>Rover Rentals</span>
-    </div>
-    <div class="detail hotel-description">
-      <p>A peaceful lunar hotel built inside a natural crater. Enjoy reduced-gravity experiences and unmatched stargazing.</p>
-    </div>
-    <div class="detail button"><button>Details</button></div>
-  </div>
-</div>
-
-<div class="hotel glass">
-  <div class="hotel-image">
-    <img src="/Images/hotel5.jpg" alt="Hotel image">
-  </div>
-  <div class="hotel-details glass">
-    <div class="detail hotel-name">Moon park</div>
-    <div class="detail location">Moon</div>
-    <div class="detail hotel-price">980 499.00€ / 24h</div>
-    <div class="detail hotel-amenities">
-      <span>Bar</span><span>Panorama views</span>
-    </div>
-    <div class="detail hotel-description">
-      <p>Commodo reprehenderit in incididunt do fugiat exercitation incididunt laboris. Sit cupidatat nostrud tempor sint consequat nisi irure cupidatat. Laborum esse culpa cillum cillum do non sit ad laborum sint reprehenderit exercitation pariatur id. Mollit cillum commodo magna irure dolore ad nisi anim. Fugiat velit veniam dolor duis laborum exercitation elit labore irure laborum consectetur irure commodo commodo. Occaecat deserunt ipsum consectetur sunt sunt tempor incididunt nisi.</p>
-    </div>
-    <div class="detail button"><button>Details</button></div>
-  </div>
-</div>
-
-<div class="hotel glass">
-  <div class="hotel-image">
-    <img src="" alt="Hotel image">
-  </div>
-  <div class="hotel-details glass">
-    <div class="detail hotel-name">Titan Breeze Resort</div>
-    <div class="detail location">Titan</div>
-    <div class="detail hotel-price">350 499.50€ / 24h</div>
-    <div class="detail hotel-amenities">
-      <span>Subzero Spa</span><span>Methane-Sea Cruises</span><span>Drone Tours</span><span>Aurora Lounge</span>
-    </div>
-    <div class="detail hotel-description">
-      <p>A cozy methane-sea-side retreat with warm interiors designed to contrast Titan’s foggy golden atmosphere.</p>
-    </div>
-    <div class="detail button"><button>Details</button></div>
-  </div>
-</div>
-
-<div class="hotel glass">
-  <div class="hotel-image">
-    <img src="" alt="Hotel image">
-  </div>
-  <div class="hotel-details glass">
-    <div class="detail hotel-name">Sky Giant Suites</div>
-    <div class="detail location">Jupiter Orbit</div>
-    <div class="detail hotel-price">1 200 000.00€ / 24h</div>
-    <div class="detail hotel-amenities">
-      <span>Storm Observatory</span><span>Anti-Gravity Pools</span><span>Cyclone Restaurants</span><span>Cloud Lounge</span>
-    </div>
-    <div class="detail hotel-description">
-      <p>A breathtaking orbital luxury hotel featuring a swirling-storm observatory where guests can watch Jupiter’s storms safely from above.</p>
-    </div>
-    <div class="detail button"><button>Details</button></div>
-  </div>
-</div>
-
-<div class="hotel glass">
-  <div class="hotel-image">
-    <img src="https://cdn2.picryl.com/photo/2021/12/31/iss-with-the-sun-emerging-over-the-curvature-of-the-earth-2f5dcb-1024.jpg" alt="Hotel image">
-  </div>
-  <div class="hotel-details glass">
-    <div class="detail hotel-name">Europa Crystal Haven</div>
-    <div class="detail location">Earth</div>
-    <div class="detail hotel-price">499 900.00€ / 24h</div>
-    <div class="detail hotel-amenities">
-      <span>Ice-Cave Tours</span><span>Subsurface Ocean VR Dive</span><span>Cryo Spas</span><span>Laser-Heated Pools</span>
-    </div>
-    <div class="detail hotel-description">
-      <p>A shimmering ice-themed hotel built beneath Europa’s frozen surface, offering crystalline corridors and advanced thermal luxuries.</p>
-    </div>
-    <div class="detail button"><button>Details</button></div>
-  </div>
-</div>
-
-<div class="hotel glass">
-  <div class="hotel-image">
-    <img src="https://easy-peasy.ai/cdn-cgi/image/quality=95,format=auto,width=800/https://media.easy-peasy.ai/67a4bb11-3ac0-4e0d-ba5e-4a68efb5ef60/37feb86c-ea78-43da-913a-6b159ac28b23.png" alt="Hotel image">
-  </div>
-  <div class="hotel-details glass">
-    <div class="detail hotel-name">Blue Infinity Retreat</div>
-    <div class="detail location">Neptune</div>
-    <div class="detail hotel-price">2 300 000.00€ / 24h</div>
-    <div class="detail hotel-amenities">
-      <span>Storm-Shield Dome</span><span>Deep-Blue Restaurant</span><span>Cloud-Drift Lounge</span><span>Cosmic Sauna</span>
-    </div>
-    <div class="detail hotel-description">
-      <p>An ultra-luxury resort surrounded by Neptune’s deep blue atmosphere. Famous for its tranquil ambiance and rarefied views.</p>
-    </div>
-    <div class="detail button"><button>Details</button></div>
-  </div>
-</div>
-
-<div class="hotel glass">
-  <div class="hotel-image">
-    <img src="" alt="Hotel image">
-  </div>
-  <div class="hotel-details glass">
-    <div class="detail hotel-name">Frostlight Outpost</div>
-    <div class="detail location">Pluto</div>
-    <div class="detail hotel-price">120 000.00€ / 24h</div>
-    <div class="detail hotel-amenities">
-      <span>Ice-Ridge Observatory</span><span>Cryo-Lounge</span><span>Pluto Rover Expeditions</span><span>Thermal Glass Cabins</span>
-    </div>
-    <div class="detail hotel-description">
-      <p>A quiet retreat far from the Sun, offering a peaceful, icy atmosphere perfect for deep-space meditation.</p>
-    </div>
-    <div class="detail button"><button>Details</button></div>
-  </div>
-</div>
-
-<div class="hotel glass">
-  <div class="hotel-image">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Iranian_Capsule_hotel_1399032511340335620591794.jpg" alt="Hotel image">
-  </div>
-  <div class="hotel-details glass">
-    <div class="detail hotel-name">Orbital Haven Station</div>
-    <div class="detail location">Deep Space Orbit</div>
-    <div class="detail hotel-price">299 999.00€ / 24h</div>
-    <div class="detail hotel-amenities">
-      <span>Zero-G Nightclub</span><span>Interstellar Docking</span><span>AI Butler Service</span><span>Starlight Atrium</span>
-    </div>
-    <div class="detail hotel-description">
-      <p>A central luxury hub for travelers crossing the solar system. Known for its panoramic star atrium and futuristic lounge experiences.</p>
-    </div>
-    <div class="detail button"><button>Details</button></div>
-  </div>
-</div>
-
-    </div>
-  </section>
-</body>
-
+    </section>
+  </body>
 </html>

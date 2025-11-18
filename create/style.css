@@ -31,19 +31,12 @@ body {
   text-decoration: none;
 }
 
-.name a, .nav-buttons a {
+.name a,
+.nav-buttons a {
   color: white;
-  text-shadow:
-    0 0 7px #fff,
-    0 0 10px #fff,
-    0 0 21px #fff,
-    0 0 42px blue,
-    0 0 82px blue,
-    0 0 92px blue,
-    0 0 102px blue,
-    0 0 151px blue;
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px blue,
+    0 0 82px blue, 0 0 92px blue, 0 0 102px blue, 0 0 151px blue;
 }
-
 
 main {
   display: flex;
@@ -68,7 +61,7 @@ form {
   gap: 2.5vh;
   padding: 30px;
   border-radius: 15px;
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 label {
@@ -80,8 +73,8 @@ input[type="number"],
 select {
   padding: 12px;
   border-radius: 8px;
-  border: 1px solid rgba(255,255,255,0.15);
-  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.5);
   color: white;
 }
 
@@ -89,7 +82,7 @@ input[type="submit"] {
   margin-top: 1vh;
   padding: 14px;
   border-radius: 8px;
-  background:#0098ff;
+  background: #0098ff;
   border: none;
   color: white;
   cursor: pointer;
@@ -148,7 +141,7 @@ select:focus {
   flex: 1 1 300px;
   min-width: 0;
   border-radius: 25px;
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   padding: 15px;
   display: flex;
   flex-direction: column;
@@ -159,7 +152,7 @@ select:focus {
   aspect-ratio: 3/2;
   width: 100%;
   border-radius: 14px;
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -175,13 +168,12 @@ select:focus {
 .hotel-details {
   margin-top: 1.5vh;
   padding: 20px;
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 14px;
   display: flex;
   flex-direction: column;
   gap: 1vh;
 }
-
 
 .hotel-details .hotel-name {
   font-size: 25px;
@@ -244,6 +236,6 @@ select:focus {
 }
 
 .glass {
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
 }
