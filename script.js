@@ -60,7 +60,27 @@ function createHotelCard(hotel) {
     return hotelCard;
 }
 
-document.querySelector
+document.getElementById("search-button").addEventListener("click", () => {
+    const planetSelect = document.getElementById("planet-select");
+    const searchText = document.getElementById("search-text");
+
+    const selectedPlanet = planetSelect.value;
+    const searchQuery = searchText.value.toLowerCase();
+
+    const hotelsGrid = document.querySelector(".hotels-grid");
+    hotelsGrid.innerHTML = "";
+
+    const filteredHotels = hotels.filter(hotel => {
+        const matchesPlanet = selectedPlanet === "" || hotel.location === selectedPlanet;
+        const matchesSearch = hotel.name.toLowerCase().includes(searchQuery);
+        return matchesPlanet && matchesSearch;
+    });
+
+    filteredHotels.forEach(hotel => {
+        const hotelCard = createHotelCard(hotel);
+        hotelsGrid.appendChild(hotelCard);
+    });
+});
 
 document.addEventListener("DOMContentLoaded", () => {
     const hotelsGrid = document.querySelector(".hotels-grid");

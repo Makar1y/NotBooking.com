@@ -27,12 +27,17 @@
       <div class="search-line">
         <h2>Available hotels</h2>
         <div class="selections">
-          <select class="planet">
+          <select id="planet-select" class="planet">
             <option value="">Select a planet</option>
-            <option value="">Earth</option>
-            <option value="">Mars</option>
-            <option value="">Jupiter</option>
-            <option value="">Moon</option>
+            <option value="Mercury">Mercury</option>
+            <option value="Venus">Venus</option>
+            <option value="Earth">Earth</option>
+            <option value="Moon">Moon</option>
+            <option value="Mars">Mars</option>
+            <option value="Jupiter">Jupiter</option>
+            <option value="Saturn">Saturn</option>
+            <option value="Uranus">Uranus</option>
+            <option value="Neptune">Neptune</option>
           </select>
           <select class="orbit">
             <option value="">Orbit level</option>
@@ -51,7 +56,7 @@
             id="search-text"
             placeholder="Enter hotel name..."
           />
-          <button class="search_button">Search</button>
+          <button id="search-button" class="search_button">Search</button>
         </div>
       </div>
 
