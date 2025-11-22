@@ -48,13 +48,15 @@ function createHotelCard(hotel) {
     descriptionDiv.appendChild(p);
     hotelDetails.appendChild(descriptionDiv);
 
-    const buttonDiv = document.createElement("div");
-    buttonDiv.className = "detail button";
+    const buttonElement = document.createElement("a");
+    buttonElement.className = "detail button";
+    buttonElement.href = "/hotels?hotel=" + encodeURIComponent(hotel.name);
 
     const button = document.createElement("button");
     button.textContent = "Details";
-    buttonDiv.appendChild(button);
-    hotelDetails.appendChild(buttonDiv);
+    button.type = "button"
+    buttonElement.appendChild(button);
+    hotelDetails.appendChild(buttonElement);
     hotelCard.appendChild(hotelDetails);
 
     return hotelCard;
