@@ -46,7 +46,7 @@ body {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  gap: 1vh;
+  gap: 1vw;
   align-self: center;
   border: 1px solid;
   width: 90%;
@@ -58,7 +58,7 @@ body {
 }
 
 .search-text {
-  width: 50%;
+  flex: 2;
   background: transparent;
   border-radius: 5px;
   border-color: rgb(31, 113, 190);
@@ -83,16 +83,29 @@ select {
 .date,
 .orbit,
 .planet,
-.search_button {
+.search_button,
+.search-text {
   padding: 5px;
-  width: 120px;
   border-radius: 5px;
   border-color: rgb(31, 113, 190);
   border-width: 2px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.selections option {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.planet {
+  padding: 5px 1vw 5px 1vw;
+  text-align: center;
+  appearance: none;       /* remove default arrow */
+  -webkit-appearance: none; /* Safari/Chrome */
+  -moz-appearance: none;   /* Firefox */
 }
 
 .search_button {
-  background: transparent;
+  padding: 5px 3vw 5px 3vw;
   color: white;
   cursor: pointer;
 }
@@ -132,7 +145,7 @@ select {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   width: 100%;
-  gap: 1vw;
+  gap: 3vh 1vw;
 }
 
 .hotel {
@@ -254,6 +267,7 @@ select {
   .date,
   .search_button {
     width: 100%;
+    text-align: center;
   }
 
   .hotels-grid {
