@@ -49,7 +49,7 @@ const hotels = [
             "Hover Taxi Access"
         ],
         description: "A luxurious habitat overlooking the vast Martian plains. Known for its biodome gardens and premium red-sand excursions.",
-        image: "/Images/hotel4.jpg"
+        image: "https://res.cloudinary.com/daibhotfk/image/upload/63da0c40-2e01-4db7-82ae-b1e127de53ad.png"
     },
     {
         name: "Moon Land",
@@ -62,7 +62,7 @@ const hotels = [
             "Rover Rentals"
         ],
         description: "A peaceful lunar hotel built inside a natural crater. Enjoy reduced-gravity experiences and unmatched stargazing.",
-        image: "/Images/hotel5.jpg"
+        image: "/Images/hotel4.jpg"
     },
     {
         name: "Moon park",
@@ -73,7 +73,7 @@ const hotels = [
             "Panorama views"
         ],
         description: "Commodo reprehenderit in incididunt do fugiat exercitation incididunt laboris. Sit cupidatat nostrud tempor sint consequat nisi irure cupidatat. Laborum esse culpa cillum cillum do non sit ad laborum sint reprehenderit exercitation pariatur id. Mollit cillum commodo magna irure dolore ad nisi anim. Fugiat velit veniam dolor duis laborum exercitation elit labore irure laborum consectetur irure commodo commodo. Occaecat deserunt ipsum consectetur sunt sunt tempor incididunt nisi.",
-        image: "/Images/hotel6.jpg"
+        image: "/Images/hotel5.jpg"
     },
     {
         name: "Europa Crystal Haven",
@@ -86,7 +86,7 @@ const hotels = [
             "Laser-Heated Pools"
         ],
         description: "A shimmering ice-themed hotel built beneath Europa’s frozen surface, offering crystalline corridors and advanced thermal luxuries.",
-        image: "/Images/hotel7.jpg"
+        image: "https://res.cloudinary.com/daibhotfk/image/upload/cf1947b4-944d-459b-8b74-b8a80b8f318d.png"
     },
     {
         name: "Blue Infinity Retreat",
@@ -99,7 +99,7 @@ const hotels = [
             "Cosmic Sauna"
         ],
         description: "An ultra-luxury resort surrounded by Neptune’s deep blue atmosphere. Famous for its tranquil ambiance and rarefied views.",
-        image: "/Images/hotel8.jpg"
+        image: "https://res.cloudinary.com/daibhotfk/image/upload/757deacd-3243-4273-ae7a-412784d55642.png"
     },
     {
         name: "Orbital Haven Station",
@@ -112,7 +112,7 @@ const hotels = [
             "Starlight Atrium"
         ],
         description: "A central luxury hub for travelers crossing the solar system. Known for its panoramic star atrium and futuristic lounge experiences.",
-        image: "/Images/hotel9.jpg"
+        image: "https://res.cloudinary.com/daibhotfk/image/upload/bcea6303-d8ab-4b47-b817-5a0eb5ae95f4.png"
     }
 ];
 
