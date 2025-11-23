@@ -166,36 +166,94 @@ section {
   position: sticky;
   top: 5vh;
   bottom: 5vh;
-  height: 60vh;
+  height: fit-content;
+  min-height: 54vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 form {
   display: flex;
   flex-direction: column;
+  gap: 15px;
 }
 
 .form-element {
-  align-self: center;
-  text-align: center;
   width: 100%;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
-.form-element span {
-  font-size: 22px;
+.book h2.form-element {
+  font-size: 30px;
   font-weight: bold;
-  margin-top: 0.2vh;
-  color: #00eaff;
-  text-shadow: 0 0 8px #00eaff;
-}
-
-.book h2 {
-  font-size: 25px;
-  font-weight: bold;
+  margin-bottom: 20px;
+  color: #fff;
   text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
 }
 
-@media (max-width: 500px) {
-  /* body {
-    background-attachment: scroll;
-  } */
+label.form-element {
+  font-size: 18px;
+  color: #d8faff;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+  display: block;
+  margin-bottom: 5px;
 }
+
+input.form-element {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 12px;
+  color: white;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+input.form-element:focus {
+  border-color: #00eaff;
+  box-shadow: 0 0 10px rgba(0, 234, 255, 0.3);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.form-element p {
+  font-size: 18px;
+  color: white;
+  margin: 0;
+}
+
+.form-element #price {
+  font-size: 28px;
+  font-weight: bold;
+  color: #00eaff;
+  text-shadow: 0 0 10px #00eaff;
+  margin-top: 5px;
+}
+
+button.form-element {
+  margin-top: 20px;
+  padding: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #000000;
+  background: #00ffff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0, 234, 255, 0.5);
+  /* text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff; */
+  text-transform: uppercase;
+}
+
+button.form-element:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 25px rgba(0, 234, 255, 0.8);
+}
+
+
