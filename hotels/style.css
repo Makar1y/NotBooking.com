@@ -90,6 +90,7 @@ section {
 .hotel-details {
   margin-top: 1.5vh;
   padding: 20px;
+  background: #000000;
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 14px;
   display: flex;
@@ -110,7 +111,7 @@ section {
 }
 
 .hotel-details .hotel-amenities-header {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   margin: 0;
   color: #00eaff;
@@ -155,7 +156,7 @@ section {
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.05);
   backdrop-filter: blur(10px);
 }
 
@@ -256,4 +257,36 @@ button.form-element:hover {
   box-shadow: 0 0 25px rgba(0, 234, 255, 0.8);
 }
 
+@media (max-width: 768px) {
+  .row-split {
+    flex-direction: column;
+  }
 
+  .book {
+    width: auto;
+    position: static;
+    min-height: auto;
+    margin-top: 1vh;
+  }
+/* 
+  .header {
+    flex-direction: column;
+    height: auto;
+    gap: 15px;
+    margin: 20px;
+  }
+
+  .left-header {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .nav-buttons {
+    margin: 0 10px;
+  }
+
+  .name {
+    margin-bottom: 10px;
+  } */
+}
