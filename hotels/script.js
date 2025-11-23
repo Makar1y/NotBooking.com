@@ -26,11 +26,6 @@ function createHotelCard(hotel) {
     locationDiv.textContent = hotel.location;
     hotelDetails.appendChild(locationDiv);
 
-    const priceDiv = document.createElement("div");
-    priceDiv.className = "detail hotel-price";
-    priceDiv.textContent = `${hotel.price.toLocaleString()}€ / 24h`;
-    hotelDetails.appendChild(priceDiv);
-
     const descriptionDiv = document.createElement("div");
     descriptionDiv.className = "detail hotel-description";
 
@@ -55,6 +50,7 @@ function createHotelCard(hotel) {
 
 document.addEventListener("DOMContentLoaded", () => {
     const hotelSection = document.getElementById("hotel");
+    const priceSpan = document.getElementById("price");
     const params = new URLSearchParams(document.location.search);
     const hotelName = params.get("hotel");
 
@@ -62,6 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (hotelName != null) {
         if (hotel) {
             hotelSection.appendChild(createHotelCard(hotel));
+            priceSpan.append(`${hotel.price.toLocaleString("lt-LT")}€`);
         } else {
             window.location.replace("/hotels/" + hotelName);
         }

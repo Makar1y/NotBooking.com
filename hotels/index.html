@@ -19,25 +19,27 @@
       </div>
     </header>
 
-    <section id="hotel">
-    </section>
-    
-    <section class="book hotel glass">
-      <h2 class="form-element">Book now</h2>
-      <form action="https://youtu.be/j5a0jTc9S10">
-        <label class="form-element" for="from-date">Check in</label>
-        <input class="date form-element" type="date" id="from-date" name="from-date" />
+    <div class="row-split">
+      <section id="hotel">
+      </section>
 
-        <label class="form-element" for="to-date">Check out</label>
-        <input class="date form-element" type="date" id="to-date" name="to-date" />
+      <section class="book hotel glass">
+        <h2 class="form-element">Book now</h2>
+        <form action="https://youtu.be/j5a0jTc9S10">
+          <label class="form-element" for="from-date">Check in</label>
+          <input class="date form-element" type="date" id="from-date" name="from-date" />
 
-        <div class="form-element">
-          <p>Price per 24h</p>
-          <span>2000</span> €
-        </div>
+          <label class="form-element" for="to-date">Check out</label>
+          <input class="date form-element" type="date" id="to-date" name="to-date" />
 
-        <button class="form-element button" type="submit">BOOK NOW</button>
-      </form>
-    </section>
+          <div class="form-element">
+            <p>Price per 24h</p>
+            <span id="price"></span>
+          </div>
+
+          <button class="form-element button" type="submit">BOOK NOW</button>
+        </form>
+      </section>
+    </div>
   </body>
 </html>
