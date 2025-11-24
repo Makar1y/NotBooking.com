@@ -28,7 +28,7 @@ function createHotelCard(hotel) {
 
     const priceDiv = document.createElement("div");
     priceDiv.className = "detail hotel-price";
-    priceDiv.textContent = `${hotel.price.toLocaleString()}€ / 24h`;
+    priceDiv.textContent = `${hotel.price.toLocaleString("lt-LT")}€ / 24h`;
     hotelDetails.appendChild(priceDiv);
 
     const amenitiesDiv = document.createElement("div");
@@ -50,7 +50,7 @@ function createHotelCard(hotel) {
 
     const buttonElement = document.createElement("a");
     buttonElement.className = "detail button";
-    buttonElement.href = "/hotels?hotel=" + encodeURIComponent(hotel.name);
+    buttonElement.href = "/hotels/?hotel=" + encodeURIComponent(hotel.name);
 
     const button = document.createElement("button");
     button.textContent = "Details";

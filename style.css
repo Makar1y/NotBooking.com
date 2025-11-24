@@ -155,6 +155,7 @@ select {
   display: flex;
   flex-direction: column;
   height: fit-content;
+  max-width: 500px;
 }
 
 .hotel-image {
@@ -244,6 +245,7 @@ select {
   cursor: pointer;
   background: rgba(0, 255, 255, 0.25);
   color: white;
+  text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff;  /* [ ] Remove if looks not well*/
   transition: 0.3s;
 }
 

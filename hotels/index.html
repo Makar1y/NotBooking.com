@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Hotel name</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="style.css" rel="stylesheet" />
+    <script type="module" src="/hotels/script.js" defer></script>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="name">NOTBOOKING.COM</div>
+      <div class="left-header">
+        <div class="nav-buttons">HOME</div>
+        <div class="nav-buttons">HOTELS</div>
+        <div class="nav-buttons">BOOKED</div>
+        <div class="nav-buttons">LOGIN</div>
+      </div>
+    </header>
+
+    <div class="row-split">
+      <section id="hotel">
+      </section>
+
+      <section class="book hotel glass">
+        <h2 class="form-element">Book now</h2>
+        <form action="https://youtu.be/j5a0jTc9S10">
+          <label class="form-element" for="from-date">Check in</label>
+          <input class="date form-element" type="date" id="from-date" name="from-date" />
+
+          <label class="form-element" for="to-date">Check out</label>
+          <input class="date form-element" type="date" id="to-date" name="to-date" />
+
+          <div class="form-element">
+            <p>Price per 24h</p>
+            <span id="price"></span>
+          </div>
+
+          <button class="form-element button" type="submit">BOOK NOW</button>
+        </form>
+      </section>
+    </div>
+  </body>
+</html>
