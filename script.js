@@ -50,7 +50,7 @@ function createHotelCard(hotel) {
 
     const buttonElement = document.createElement("a");
     buttonElement.className = "detail button";
-    buttonElement.href = "/hotels?hotel=" + encodeURIComponent(hotel.name);
+    buttonElement.href = "/hotels/?hotel=" + encodeURIComponent(hotel.name);
 
     const button = document.createElement("button");
     button.textContent = "Details";
