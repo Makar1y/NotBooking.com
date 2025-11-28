@@ -131,7 +131,7 @@ select:focus {
 
 /* --------------- PREVIEW ----------------------- */
 
-.preview-grid {
+/* .preview-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 1vw;
@@ -233,7 +233,7 @@ select:focus {
 .hotel-details .button button:hover {
   background: rgba(0, 255, 255, 0.45);
   box-shadow: 0 0 12px #00eaff;
-}
+} */
 
 .glass {
   background: rgba(255, 255, 255, 0.05);

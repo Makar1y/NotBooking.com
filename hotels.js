@@ -4,12 +4,13 @@ const hotels = [
         location: "Earth",
         price: 20000.99,
         amenities: [
-        "Gravity Spa",
+            "Gravity Spa",
             "360° Earthview Lounge",
             "AI Concierge",
-            "Orbital Shuttle Access"
+            "Orbital Shuttle Access",
+            "Hydroponic Oxygen Gardens"
         ],
-        description: "A serene low-orbit retreat offering uninterrupted panoramic views of Earth’s oceans and continents. Designed for peaceful escapes, Earth Circle blends luxurious silence with cutting-edge comfort.",
+        description: "Suspended in a stable low-earth orbit, Earth Circle offers a serene retreat for those looking to escape the hustle of the surface. The hotel features floor-to-ceiling reinforced glass walls in every suite, providing uninterrupted, breathtaking panoramic views of Earth's swirling oceans, vibrant continents, and illuminated cityscapes at night. Designed for peaceful escapes, Earth Circle blends luxurious silence with cutting-edge comfort, ensuring every guest feels the tranquility of the cosmos while remaining close to home.",
         image: "/Images/hotel1.png"
     },
     {
@@ -18,24 +19,25 @@ const hotels = [
         price: 36999.99,
         amenities: [
             "Zero-G Gym",
-            "Celestial Bar",
-            "Holodeck Entertainment",
-            "Galaxy-Class Suites"
+            "Celestial Cocktail Bar",
+            "Holodeck Entertainment Suites",
+            "Galaxy-Class Staterooms",
+            "Anti-Gravity Yoga Studio",
+            "Meteorite Massage Therapy"
         ],
-        description: "A premium orbital hotel featuring immersive holosuites and a zero-gravity wellness wing. Perfect for travelers seeking high-end Earth-orbit luxury with futuristic recreation.",
+        description: "StarOtel is the premier destination for thrill-seekers and luxury lovers alike. This orbital hotel redefines hospitality with its state-of-the-art immersive holosuites that can transport you to any era or world, and a dedicated zero-gravity wellness wing where you can float your stress away. Whether you are sipping a nebula-infused cocktail at the Celestial Bar or training like an astronaut in the Zero-G Gym, StarOtel delivers high-end Earth-orbit luxury with a futuristic twist on recreation.",
         image: "/Images/hotel2.jpg"
     },
     {
-        name: "Earth Circle – New Horizon",
+        name: "Earth Circle - New Horizon",
         location: "Earth",
         price: 50999.99,
         amenities: [
-            "Horizon Deck",
-            "Skyfall Restaurant",
-            "Private Pods",
-            "Plasma-Window Viewports"
+            "Horizon Observation Deck",
+            "Skyfall Gourmet Restaurant",
+            "Private Levitation Pods"
         ],
-        description: "An elite expansion of the original Earth Circle, New Horizon offers maximum privacy, exclusive dining, and breathtaking sunrise-over-Earth experiences.",
+        description: "An elite and exclusive expansion of the original Earth Circle, New Horizon is designed for the ultra-wealthy who demand absolute privacy and unparalleled service. This wing offers maximum seclusion with private levitation pods and exclusive access to the Skyfall Gourmet Restaurant, where meals are prepared by robotic Michelin-star chefs. Witness the most breathtaking sunrise-over-Earth experiences from your private balcony, where the curvature of the planet meets the infinite darkness of space in a spectacle of light and color.",
         image: "/Images/hotel3.jpg"
     },
     {
@@ -43,12 +45,13 @@ const hotels = [
         location: "Mars",
         price: 1549999.98,
         amenities: [
-            "Mars Surface Tours",
-            "Dome Gardens",
-            "Nano-Dust Air Filters",
-            "Hover Taxi Access"
+            "Mars Surface Rover Tours",
+            "Biodome Botanical Gardens",
+            "Nano-Dust Air Filtration",
+            "Hover Taxi Concierge",
+            "Olympus Mons Heli-Tours"
         ],
-        description: "A luxurious habitat overlooking the vast Martian plains. Known for its biodome gardens and premium red-sand excursions.",
+        description: "Perched on the edge of a canyon overlooking the vast, rust-colored Martian plains, Red Hotel is a miracle of engineering and luxury. It is renowned for its lush, sprawling biodome gardens that offer a vibrant green contrast to the red desert outside. Guests can embark on premium red-sand excursions in pressurized rovers or simply relax in the filtered, oxygen-rich air of the habitat. It offers a touch of Earth's comfort while immersing you in the raw, alien beauty of the Red Planet.",
         image: "https://res.cloudinary.com/daibhotfk/image/upload/63da0c40-2e01-4db7-82ae-b1e127de53ad.png"
     },
     {
@@ -56,36 +59,37 @@ const hotels = [
         location: "Moon",
         price: 79999.99,
         amenities: [
-            "Lunar Gravity Park",
-            "Crater Spa",
-            "Stargazing Deck",
-            "Rover Rentals"
+            "Gravity Park",
+            "Spa",
         ],
-        description: "A peaceful lunar hotel built inside a natural crater. Enjoy reduced-gravity experiences and unmatched stargazing.",
+        description: "Nestled securely inside a natural crater on the Moon's surface, Moon Land offers a peaceful sanctuary away from the noise of civilization. The hotel specializes in reduced-gravity experiences, allowing guests to bound effortlessly across the landscape in the Lunar Gravity Park. With no atmosphere to obscure the view, the Deep Space Stargazing Deck offers an unmatched window into the universe, making it a haven for astronomers and dreamers alike.",
         image: "/Images/hotel4.jpg"
     },
     {
-        name: "Moon park",
+        name: "Moon Park",
         location: "Moon",
         price: 980499.00,
         amenities: [
-            "Bar",
-            "Panorama views"
+            "Bar & Grill",
+            "Apollo History Museum",
+            "Panoramic Views",
+            "Souvenir Shop",
         ],
-        description: "Commodo reprehenderit in incididunt do fugiat exercitation incididunt laboris. Sit cupidatat nostrud tempor sint consequat nisi irure cupidatat. Laborum esse culpa cillum cillum do non sit ad laborum sint reprehenderit exercitation pariatur id. Mollit cillum commodo magna irure dolore ad nisi anim. Fugiat velit veniam dolor duis laborum exercitation elit labore irure laborum consectetur irure commodo commodo. Occaecat deserunt ipsum consectetur sunt sunt tempor incididunt nisi.",
+        description: "Experience the ultimate lunar getaway at Moon Park, a sprawling resort complex designed for family fun and historical exploration. It features the solar system's first 18-hole low-gravity golf course, where drives go for miles, and immersive historical tours of the Apollo landing sites. After a day of adventure, relax at the Armstrong Bar & Grill with an Earth-rise view, or explore the interactive exhibits at the on-site museum. It's the perfect blend of history, science, and leisure.",
         image: "/Images/hotel5.jpg"
     },
     {
         name: "Europa Crystal Haven",
-        location: "Earth",
+        location: "Europa",
         price: 499900.00,
         amenities: [
-            "Ice-Cave Tours",
-            "Subsurface Ocean VR Dive",
-            "Cryo Spas",
-            "Laser-Heated Pools"
+            "Sub-Surface Ice Cave Tours",
+            "Oceanic VR Dives",
+            "Cryo-Therapy Spas",
+            "Geothermal Heated Pools",
+            "Bioluminescent Algae Gardens"
         ],
-        description: "A shimmering ice-themed hotel built beneath Europa’s frozen surface, offering crystalline corridors and advanced thermal luxuries.",
+        description: "Buried deep beneath the frozen crust of Jupiter's moon Europa, Crystal Haven is a shimmering architectural marvel carved from the ice itself. This hotel offers a unique subsurface ocean paradise, featuring crystalline corridors that glow with soft, ambient light and advanced thermal luxuries to keep the cold at bay. Guests can explore the mysterious depths in submersible vehicles or relax in geothermal heated pools while watching the alien marine life swim past reinforced viewing panels.",
         image: "https://res.cloudinary.com/daibhotfk/image/upload/cf1947b4-944d-459b-8b74-b8a80b8f318d.png"
     },
     {
@@ -93,25 +97,26 @@ const hotels = [
         location: "Neptune",
         price: 2300000.00,
         amenities: [
-            "Storm-Shield Dome",
-            "Deep-Blue Restaurant",
-            "Cloud-Drift Lounge",
-            "Cosmic Sauna"
+            "Storm-Shield Observation Dome",
+            "Deep-Blue Fusion Restaurant",
+            "Cloud-Drift Levitation Lounge",
+            "Cosmic Ray Sauna"
         ],
-        description: "An ultra-luxury resort surrounded by Neptune’s deep blue atmosphere. Famous for its tranquil ambiance and rarefied views.",
+        description: "Floating gracefully in the upper atmosphere of Neptune, Blue Infinity Retreat is an ultra-luxury resort that defies the elements. Protected by advanced storm-shield technology, it offers a tranquil ambiance amidst the chaotic beauty of the gas giant. Famous for its diamond rain viewing decks and the Deep-Blue Fusion Restaurant, this hotel provides rarefied views of the cobalt clouds and the distant sun, creating an atmosphere of isolation and exclusivity found nowhere else.",
         image: "https://res.cloudinary.com/daibhotfk/image/upload/757deacd-3243-4273-ae7a-412784d55642.png"
     },
     {
-        name: "Orbital Haven Station",
-        location: "Deep Space Orbit",
-        price: 299999.00,
+        name: "Titan Cryo-Resort",
+        location: "Titan",
+        price: 349999.00,
         amenities: [
-            "Zero-G Nightclub",
-            "Interstellar Docking",
-            "AI Butler Service",
-            "Starlight Atrium"
+            "Methane Lake Boating",
+            "Thick-Atmosphere Flight Suits",
+            "Saturn-View Observation Deck",
+            "Cryo-Preservation Spa",
+            "Hydrocarbon Heated Springs"
         ],
-        description: "A central luxury hub for travelers crossing the solar system. Known for its panoramic star atrium and futuristic lounge experiences.",
+        description: "Located on the shores of Ligeia Mare, the Titan Cryo-Resort embraces the chill of Saturn's largest moon. This unique destination offers boating excursions on liquid methane lakes and human-powered flight experiences in the moon's dense atmosphere and low gravity. The resort's architecture is inspired by the rugged, icy terrain, offering a cozy, warm refuge with spectacular views of Saturn's rings dominating the sky. It is the ultimate frontier for those seeking adventure in the outer solar system.",
         image: "https://res.cloudinary.com/daibhotfk/image/upload/bcea6303-d8ab-4b47-b817-5a0eb5ae95f4.png"
     }
 ];
