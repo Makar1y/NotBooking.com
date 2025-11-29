@@ -7,41 +7,16 @@ body {
 }
 
 .header {
-  margin: 20px 40px 0px 40px;
+  margin: 3vh 40px 2vh 40px;
   height: 50px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .name {
-  font-size: 35px;
+  font-size: 6vh;
   cursor: pointer;
-}
-
-.left-header {
-  display: flex;
-}
-
-.nav-buttons {
-  font-size: 15px;
-  margin: 0 40px 0 40px;
-  cursor: pointer;
-}
-
-.title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.title-text {
-  font-size: 70px;
-}
-
-.name,
-.nav-buttons,
-.title-text {
+  text-decoration: none;
   color: white;
   text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px blue,
     0 0 82px blue, 0 0 92px blue, 0 0 102px blue, 0 0 151px blue;
@@ -143,10 +118,6 @@ section {
   font-size: 1.5rem;
   opacity: 0.85;
   color: #d8faff;
-}
-
-.hotel-details .hotel-description {
-  max-height: 15vh;
 }
 
 .hotel-details .hotel-description p {
@@ -268,25 +239,14 @@ button.form-element:hover {
     min-height: auto;
     margin-top: 1vh;
   }
-/* 
-  .header {
-    flex-direction: column;
-    height: auto;
-    gap: 15px;
-    margin: 20px;
-  }
-
-  .left-header {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-  }
-
-  .nav-buttons {
-    margin: 0 10px;
-  }
 
   .name {
-    margin-bottom: 10px;
-  } */
+    font-size: 5vh;
+  }
+}
+
+@media (max-width: 500px) {
+  .name {
+    font-size: 4vh;
+  }
 }

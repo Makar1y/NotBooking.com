@@ -12,6 +12,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1vh;
 }
 
 .name {
@@ -27,6 +29,7 @@ body {
   font-size: 15px;
   margin: 0 40px 0 40px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .title {
@@ -231,7 +234,7 @@ select {
 .hotel-details .hotel-description p {
   font-size: calc(0.7em + 0.6vmin);
   display: -webkit-box;
-  -webkit-line-clamp: 3; /* number of lines (adjust as needed) */
+  -webkit-line-clamp: 3; /* number of lines to show before "..." */
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -245,7 +248,7 @@ select {
   cursor: pointer;
   background: rgba(0, 255, 255, 0.25);
   color: white;
-  text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff;  /* [ ] Remove if looks not well*/
+  text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff;
   transition: 0.3s;
 }
 

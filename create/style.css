@@ -7,32 +7,16 @@ body {
 }
 
 .header {
-  margin: 20px 40px 0px 40px;
+  margin: 3vh 40px 2vh 40px;
   height: 50px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
-.name a {
-  font-size: 35px;
+.name {
+  font-size: 6vh;
   cursor: pointer;
   text-decoration: none;
-}
-
-.left-header {
-  display: flex;
-}
-
-.nav-buttons a {
-  font-size: 15px;
-  margin: 0 40px;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.name a,
-.nav-buttons a {
   color: white;
   text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px blue,
     0 0 82px blue, 0 0 92px blue, 0 0 102px blue, 0 0 151px blue;
@@ -96,8 +80,7 @@ select:focus {
   box-shadow: 0 0 10px #00ffff;
 }
 
-/* CUSTOM FILE UPLOAD BUTTON */
-/* Hide the real file input */
+/* hide the real file input button */
 #hotel-image {
   opacity: 0;
   height: 0;
@@ -106,7 +89,7 @@ select:focus {
   pointer-events: none;
 }
 
-/* Styled "Browse" button */
+/* browse button */
 .custom-file-btn {
   margin-top: -1vh;
   padding: 12px 18px;
@@ -129,113 +112,19 @@ select:focus {
   box-shadow: 0 0 12px #00eaff;
 }
 
-/* --------------- PREVIEW ----------------------- */
-
-/* .preview-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1vw;
-}
-
-.hotel {
-  flex: 1 1 300px;
-  min-width: 0;
-  border-radius: 25px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  height: fit-content;
-}
-
-.image-preview {
-  aspect-ratio: 3/2;
-  width: 100%;
-  border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.image-preview img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.hotel-details {
-  margin-top: 1.5vh;
-  padding: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 1vh;
-}
-
-.hotel-details .hotel-name {
-  font-size: 25px;
-  font-weight: bold;
-  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
-}
-
-.hotel-details .hotel-amenities {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5vh;
-  overflow: hidden;
-  justify-content: space-around;
-}
-
-.hotel-details .hotel-amenities span {
-  padding: 6px 12px;
-  border-radius: 12px;
-  background: rgba(12, 213, 248, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  font-size: 1.5vh;
-  letter-spacing: 0.05vw;
-  text-wrap: nowrap;
-}
-
-.hotel-details .location {
-  font-size: 1.5rem;
-  opacity: 0.85;
-  color: #d8faff;
-}
-
-.hotel-details .hotel-price {
-  font-size: 22px;
-  font-weight: bold;
-  margin-top: 0.2vh;
-  color: #00eaff;
-  text-shadow: 0 0 8px #00eaff;
-}
-
-.hotel-details .hotel-description {
-  font-size: 15px;
-  line-height: 1.5;
-}
-
-.hotel-details .button button {
-  width: 100%;
-  padding: 12px;
-  font-size: 16px;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-  background: rgba(0, 255, 255, 0.25);
-  color: white;
-  transition: 0.3s;
-}
-
-.hotel-details .button button:hover {
-  background: rgba(0, 255, 255, 0.45);
-  box-shadow: 0 0 12px #00eaff;
-} */
-
 .glass {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
+}
+
+@media (max-width: 768px) {
+  .name {
+    font-size: 5vh;
+  }
+}
+
+@media (max-width: 500px) {
+  .name {
+    font-size: 4vh;
+  }
 }
