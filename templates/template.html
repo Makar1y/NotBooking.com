@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NotBooking.com</title>
+    <link href="style.css" rel="stylesheet" />
+    <script type="module" src="script.js" defer></script>
+    <link rel="icon" href="/favicon.png" type="image/png" />
+</head>
+
+<body>
+    <header class="header">
+        <a class="name">NOTBOOKING.COM</a>
+        <div class="left-header">
+            <a class="nav-buttons" href="/create">CREATE LISTING</a>
+        </div>
+    </header>
+    <div class="title">
+        <p class="title-text">Reserve your space.</p>
+        <p></p>
+    </div>
+
+    <section class="hotels-list">
+        <div class="search-line">
+            <h2>Available hotels</h2>
+            <div class="selections">
+                <select id="planet-select" class="planet">
+                    <option value="">Select a planet</option>
+                    <option value="Mercury">Mercury</option>
+                    <option value="Venus">Venus</option>
+                    <option value="Earth">Earth</option>
+                    <option value="Moon">Moon</option>
+                    <option value="Mars">Mars</option>
+                    <option value="Jupiter">Jupiter</option>
+                    <option value="Saturn">Saturn</option>
+                    <option value="Titan">Titan</option>
+                    <option value="Uranus">Uranus</option>
+                    <option value="Neptune">Neptune</option>
+                </select>
+                <input class="search-text" type="text" id="search-text" placeholder="Enter hotel name..." />
+                <button id="search-button" class="search_button">Search</button>
+            </div>
+        </div>
+
+        <div class="hotels-grid">
+            {% {hotels}
+            <div class="hotel glass">
+                <div class="hotel-image">
+                    <img src="{{ image }}" alt="Hotel image" />
+                </div>
+                <div class="hotel-details glass">
+                    <div class="detail hotel-name">{{ name }}</div>
+                    <div class="detail location">{{ location }}</div>
+                    <div class="detail hotel-price">{{ price }}€ / 24h</div>
+                    <div class="detail hotel-amenities">
+                        {% {amenities} <span>{{}}</span> %}
+                    </div>
+                    <div class="detail hotel-description">
+                        <p>
+                            {{ description }}
+                        </p>
+                    </div>
+                    <a class="detail button" href="/hotels/?hotel={{ name }}"><button type="button">Details</button></a>
+                </div>
+            </div>
+            %}
+        </div>
+    </section>
+</body>
+
+</html>
