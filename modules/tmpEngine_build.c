@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 #define SOURCE_DIR "./tmpEngine_source/"
-#define OUTPUT_DIR "./tmpEngineLib/"
+#define OUTPUT_DIR "./tmpEngineLibs/"
 #define SIZE 256
 
 int main() {

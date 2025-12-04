@@ -10,7 +10,7 @@
 // TODO errors tracebacks
 
 int serve_block(Block_manager *block_manager, FILE *html_template, FILE *output_file, unsigned int line, char *buffer, \
-                    char *block_name_start, char *request_url) {
+                    char *block_name_start, char *request_url, long start_pos) {
     char block_name[LINE_BUFFER_SIZE];
     char *block_name_end = find_block_end(block_name_start);
 
@@ -35,7 +35,7 @@ int serve_block(Block_manager *block_manager, FILE *html_template, FILE *output_
                 return 0;
             }
         } else {
-            if ( !handle_block_open(block_manager, output_file, line, buffer, block_name_start, block_name, block_name_end, request_url) ) {
+            if ( !handle_block_open(block_manager, output_file, line, buffer, block_name_start, block_name, block_name_end, request_url, start_pos) ) {
                 return 0;
             }
         }
@@ -71,12 +71,12 @@ int serve_tag(FILE *output_file, unsigned int line, char *buffer, char *tag_name
 }
 
 
-int process_line(Block_manager *block_manager, FILE *html_template, FILE *output_file, unsigned int line, char *buffer, char *request_url) {
+int process_line(Block_manager *block_manager, FILE *html_template, FILE *output_file, unsigned int line, char *buffer, char *request_url, long start_pos) {
     char *block_start = find_block_start(buffer);
     char *tag_start   = find_tag_start(buffer);
 
     if (block_start) {
-        if (serve_block(block_manager, html_template, output_file, line, buffer, block_start, request_url)) {
+        if (serve_block(block_manager, html_template, output_file, line, buffer, block_start, request_url, start_pos)) {
             return 3;
         } else {
             fprintf(stderr, "%s Processing line unsuccessful! (html line %u)\n", ERROR_PREFIX, line);
@@ -97,6 +97,11 @@ int process_line(Block_manager *block_manager, FILE *html_template, FILE *output
 
 
 int template_to_html(FILE *html_template, char *target_filename) {
+    if ( !html_template ) {
+        fprintf(stderr, "%s Wrong pinter to html template!\n", ERROR_PREFIX);
+        return 0;
+    }
+
     FILE *output_file = fopen(target_filename, "w");
     if ( !output_file ) {
         perror(target_filename);
@@ -108,11 +113,13 @@ int template_to_html(FILE *html_template, char *target_filename) {
     Block_manager block_manager = {0};
 
     unsigned line = 0;
+    long line_start_pos = ftell(html_template);
     while (fgets(buffer, LINE_BUFFER_SIZE, html_template)) {
         ++line;
-        if ( !process_line(&block_manager, html_template, output_file, line, buffer, request_url) ) {
+        if ( !process_line(&block_manager, html_template, output_file, line, buffer, request_url, line_start_pos) ) {
             return 0;
         }
+        line_start_pos = ftell(html_template);
     }
 
     destroy_block_manager(&block_manager);

@@ -7,13 +7,15 @@
 
 
 int handle_block_open(Block_manager *block_manager, FILE *output_file, unsigned int line, char *buffer, \
-                      char *block_name_start, char *block_name, char *block_name_end, char *request_url) {
-    if (block_push(block_manager, block_name, line, 3)) { // TODO Replace repeats with function to get data from json
+                      char *block_name_start, char *block_name, char *block_name_end, char *request_url, long start_pos) {
+    if (block_push(block_manager, block_name, start_pos, 3)) { // TODO Replace repeats with function to get data from json
         strcat(request_url, "."); // [ ] Adapt for json functions
         strcat(request_url, block_name);
             
-        if ( fwrite(buffer, sizeof(char), block_name_start - buffer, output_file) || !fputs(block_name_end  + strlen(BLOCK_POSTFIX), output_file) ) {
-            return 1;
+        if ( fwrite(buffer, sizeof(char), block_name_start - buffer, output_file) == (size_t)(block_name_start - buffer) ) {
+            if ( fputs(block_name_end  + strlen(BLOCK_POSTFIX), output_file) != EOF ) {
+                return 1;
+            }
         }
         fprintf(stderr, "%s Writing to output file unsuccessful! (html line %u)\n", ERROR_PREFIX, line);
     }
@@ -22,7 +24,7 @@ int handle_block_open(Block_manager *block_manager, FILE *output_file, unsigned 
 }
 
 int handle_block_repeat(FILE *output_file, unsigned int line, char *buffer, char *block_name_end) {
-    if ( fputs(block_name_end  + strlen(BLOCK_POSTFIX), output_file) ) {
+    if ( fputs(block_name_end  + strlen(BLOCK_POSTFIX), output_file) != EOF ) {
         return 1;
     }
     fprintf(stderr, "%s Repeating writing to output file unsuccessful! (html line %u)\n", ERROR_PREFIX, line);
@@ -35,18 +37,13 @@ int handle_block_end(Block_manager *block_manager, FILE *template_file, FILE *ou
         if (block_manager->blocks) {
             Block *block = block_top(block_manager);
             if (block->left_repeats) {
-                fseek(template_file, 0, SEEK_SET);
-                char unused_buffer[LINE_BUFFER_SIZE];
-                
-                for (unsigned int i = 0; i < block->line - 1; ++i) {
-                    fgets(unused_buffer, LINE_BUFFER_SIZE, template_file);
-                }
+                fseek(template_file, block->start_pos, SEEK_SET);
                 block->left_repeats--;
                 return 1;
             } else {
                 request_url[strlen(request_url) - strlen(block->name) - 1] = '\0' ;
                 block_pop(block_manager);
-                if (fputs(block_name_end + strlen(BLOCK_POSTFIX), output_file)) {
+                if (fputs(block_name_end + strlen(BLOCK_POSTFIX), output_file) != EOF) {
                     return 1;
                 }
                 fprintf(stderr, "%s Writing to output file unsuccessful! (html line %u)\n", ERROR_PREFIX, line);
@@ -61,9 +58,9 @@ int handle_block_end(Block_manager *block_manager, FILE *template_file, FILE *ou
 }
 
 int replace_tag(FILE *output_file, unsigned int line, char *buffer, char *tag_name_start, char *tag_name_end, char *json_value) {
-    if (fwrite(buffer, sizeof(char), tag_name_start - buffer, output_file)) {
-        if (fputs(json_value, output_file)) {
-            if (fputs(tag_name_end + strlen(TAG_POSTFIX), output_file)) {
+    if (fwrite(buffer, sizeof(char), tag_name_start - buffer, output_file) == (size_t)(tag_name_start - buffer)) {
+        if (fputs(json_value, output_file) != EOF) {
+            if (fputs(tag_name_end + strlen(TAG_POSTFIX), output_file) != EOF) {
                 return 1;
             }
         }

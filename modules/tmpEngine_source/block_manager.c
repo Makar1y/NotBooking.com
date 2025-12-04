@@ -16,7 +16,7 @@ Block *block_top(Block_manager *bm) {
     return &bm->blocks[bm->size - 1];
 }
 
-int block_push(Block_manager *bm, const char *name, unsigned int line, unsigned int repeats) {
+int block_push(Block_manager *bm, const char *name, long start_pos, unsigned int repeats) {
     Block *tmp = realloc(bm->blocks, sizeof(Block) * (bm->size + 1));
     if (!tmp)
         return 0;
@@ -25,13 +25,13 @@ int block_push(Block_manager *bm, const char *name, unsigned int line, unsigned 
     Block *new = &bm->blocks[bm->size];
     bm->size++;
 
-    char *copied_name = malloc(strlen(name) * sizeof(char));
+    char *copied_name = malloc((strlen(name) + 1) * sizeof(char));
     if (!copied_name)
         return 0;
     strcpy(copied_name, name);
 
     new->name = copied_name;
-    new->line = line;
+    new->start_pos = start_pos;
     new->left_repeats = repeats;
 
     return 1;
