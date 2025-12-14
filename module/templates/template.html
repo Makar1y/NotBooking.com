@@ -44,7 +44,8 @@
             </div>
         </div>
 
-        <div class="hotels-grid">{?
+        <div class="hotels-grid">
+            {?
             <div class="hotel glass">
                 <div class="hotel-image">
                     <img src="{{image}}" alt="Hotel image" />
@@ -54,8 +55,7 @@
                     <div class="detail location">{{location}}</div>
                     <div class="detail hotel-price">{{price}}€ / 24h</div>
                     <div class="detail hotel-amenities">
-                        {%{amenities} <span>{{}}</span>
-                    %}</div>
+                        {%{amenities} <span>{{}}</span>%}</div>
                     <div class="detail hotel-description">
                         <p>
                             {{description}}
@@ -63,7 +63,8 @@
                     </div>
                         <a class="detail button" href="/hotels/?hotel={{name}}"><button type="button">Details</button></a>
                 </div>
-            </div>?}
+            </div>
+            ?}
         </div>
     </section>
 </body>

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "module1.h"
+#include "tmpEngine.h"
 
 long getSizeOfFile(char* filename) {
   FILE *myfile = fopen(filename, "r");
@@ -455,3 +455,22 @@ void copyHTMLThatAreArrays(char* template_html, char* output_html, char* filenam
   fclose(myfile);
   free(newHTML);
 }
+
+
+
+int processTemplate(char* template, char* output, char* data_json) {
+  if(checkErrors(template)) {
+    return 1;
+  }
+  checkForDuplicates(template, output);
+  copyHTMLBlocks(output, output, data_json);
+  copyHTMLThatAreArrays(output, output, data_json);
+  return 0;
+}
+
+#ifdef TEST
+int main() {
+  processTemplate("templates/template.html", "templates/output.html", "templates/data.json");
+  return 0;
+}
+#endif
