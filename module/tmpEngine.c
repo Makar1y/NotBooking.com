@@ -469,8 +469,12 @@ int processTemplate(char* template, char* output, char* data_json) {
 }
 
 #ifdef TEST
-int main() {
-  processTemplate("templates/template.html", "templates/output.html", "templates/data.json");
+int main(int argc, char* argv[]) {
+  if (argc != 4) {
+    printf("Usage: %s <template> <output> <json>\n", argv[0]);
+    return 1;
+  }
+  processTemplate(argv[1], argv[2], argv[3]);
   return 0;
 }
 #endif

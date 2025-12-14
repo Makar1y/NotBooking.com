@@ -72,15 +72,16 @@ this block copied for each element in array and paste array element in {{}}.
 {%{items} <span>{{}}</span> %}
 ```
 
-### 4. json data
+### 4. JSON data
 
-You can see in [data.json](templates/data.json) file example of json data structure.
+You can see in [data.json](templates/data.json) file example of JSON data structure.
 
 ## Test
 
 For testing purposes, the module can be compiled and run as a standalone program:
 ```bash
 gcc tmpEngine.c -D TEST -o tmpEngine_test
+./tmpEngine_test templates/template.html templates/data.json templates/output.html
 ```
 
 To compile the engine with your code:
