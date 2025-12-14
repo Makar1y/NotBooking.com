@@ -3,10 +3,23 @@
 #include <string.h>
 #include "module1.h"
 
-int countBlocks(char* filename_json){
-  FILE *myfile = fopen(filename_json, "r");
+long getSizeOfFile(char* filename) {
+  FILE *myfile = fopen(filename, "r");
   if(!myfile)
     return -1;
+
+  fseek(myfile, 0, SEEK_END);
+  long size = ftell(myfile);
+  rewind(myfile);
+
+  fclose(myfile);
+  return size;
+}
+
+char* getTextOfFile(char* filename) {
+  FILE *myfile = fopen(filename, "r");
+  if(!myfile)
+    return NULL;
 
   fseek(myfile, 0, SEEK_END);
   long size = ftell(myfile);
@@ -15,7 +28,80 @@ int countBlocks(char* filename_json){
   char* text = malloc(size+1);
   fread(text, 1, size, myfile);
   text[size] = '\0';
+
   fclose(myfile);
+  return text;
+}
+
+int checkErrors(char* template_html){
+  long size = getSizeOfFile(template_html);
+  char* text = getTextOfFile(template_html);
+
+  int opening1 = 0, opening2 = 0, opening3 = 0;
+  int line = 1, errorLine1 = 0, errorLine2 = 0, errorLine3 = 0;
+
+  for (int i = 0; i < size; ++i) {
+    if (text[i] == '{' && text[i + 1] == '{'){
+      opening1++;
+      if(opening1 > 1) {
+        printf("Error: missing closing }} in line: %d", errorLine1);
+        return 1;
+      }
+      errorLine1 = line;
+    }
+    if (text[i] == '}' && text[i + 1] == '}'){
+      opening1--;
+    }
+    if(text[i] == '\n') {
+      line++;
+    }
+    if (text[i] == '{' && text[i + 1] == '?'){
+      opening2++;
+      if(opening2 > 1) {
+        printf("Error: missing closing ?} in line: %d", errorLine2);
+        return 1;
+      }
+      errorLine2 = line;
+    }
+    if (text[i] == '?' && text[i + 1] == '}'){
+      opening2--;
+    }
+    if(text[i] == '\n') {
+      line++;
+    }
+    if (text[i] == '{' && text[i + 1] == '%'){
+      opening3++;
+      if(opening3 > 1) {
+        printf("Error: missing closing %%} in line: %d", errorLine3);
+        return 1;
+      }
+      errorLine3 = line;
+    }
+    if (text[i] == '%' && text[i + 1] == '}'){
+      opening3--;
+    }
+    if(text[i] == '\n') {
+      line++;
+    }
+  }
+  if (opening1 == 1) {
+    printf("Error: missing closing }} in line: %d", errorLine1);
+    return 1;
+  }
+  if (opening2 == 1) {
+    printf("Error: missing closing ?} in line: %d", errorLine2);
+    return 1;
+  }
+  if (opening3 == 1) {
+    printf("Error: missing closing %%} in line: %d", errorLine3);
+    return 1;
+  }
+  return 0;
+}
+
+int countBlocks(char* filename_json){
+  long size = getSizeOfFile(filename_json);
+  char* text = getTextOfFile(filename_json);
 
   int count = 0;
   int inString = 0;
@@ -39,19 +125,53 @@ int countBlocks(char* filename_json){
   return count;
 }
 
-void copyHTMLBlocks(char* template_html, char* output_html, char* filename_json){
-  FILE *myfile = fopen(template_html, "r");
-  if(!myfile)
-    return;
-  
-  fseek(myfile, 0, SEEK_END);
-  long size = ftell(myfile);
-  rewind(myfile);
+void checkForDuplicates(char* template_html, char* output_html){
+  long size = getSizeOfFile(template_html);
+  char* text = getTextOfFile(template_html);
 
-  char* text = malloc(size+1);
-  fread(text, 1, size, myfile);
-  text[size] = '\0';
+  char* newHTML = calloc(size * 2, 1);
+
+  int i;
+  int plus = -1;
+  char elements[JSON_ELEMENT_COUNT][MAX_JSON_KEY_LENGTH];
+  int elementCount = 0;
+  for (i = 1; i < size; ++i) {
+    if(text[i] == '\n') //stupid windows
+      size--;
+    *(newHTML + i + plus) = text[i];
+    if (text[i - 1] == '{' && text[i] == '{') {
+      int j = 1;
+      char* element = calloc(MAX_JSON_KEY_LENGTH, 1);
+      while(text[i + j] != '}' && text[i + j + 1] != '}') {
+        element[j - 1] = text[i + j];
+        j++;
+      }
+      element[j - 1] = '\0';
+      int found = 0;
+      for(int k = 0; k < elementCount; k++) {
+        if (!strcmp(element, elements[k])) {
+          plus++;
+          *(newHTML + i + plus) = '_';
+          found = 1;
+          break;
+        }
+      }
+      if (!found) {
+        strcpy(elements[elementCount], element);
+        elementCount++;
+      }
+    }
+  }
+  newHTML[i + plus] = '\0';
+  FILE* myfile = fopen(output_html, "w");
+  fprintf(myfile, "%s\n", newHTML);
   fclose(myfile);
+  free(newHTML);
+};
+
+void copyHTMLBlocks(char* template_html, char* output_html, char* filename_json){
+  long size = getSizeOfFile(template_html);
+  char* text = getTextOfFile(template_html);
 
   int blocksCount = countBlocks(filename_json);
 
@@ -87,7 +207,7 @@ void copyHTMLBlocks(char* template_html, char* output_html, char* filename_json)
   for (; i < size; ++i) {
     *(newHTML + (i + add)) = text[i];
   }
-  myfile = fopen(output_html, "w");
+  FILE* myfile = fopen(output_html, "w");
   fprintf(myfile, "%s\n", newHTML);
   fclose(myfile);
   free(newHTML);
@@ -96,29 +216,19 @@ void copyHTMLBlocks(char* template_html, char* output_html, char* filename_json)
 
 
 void copyHTMLThatAreArrays(char* template_html, char* output_html, char* filename_json){
-  FILE *myfile = fopen(template_html, "r");
-  if(!myfile)
-    return;
-  
-  fseek(myfile, 0, SEEK_END);
-  long size = ftell(myfile);
-  rewind(myfile);
-
-  char* text = malloc(size+1);
-  fread(text, 1, size, myfile);
-  text[size] = '\0';
-  fclose(myfile);
+  long size = getSizeOfFile(template_html);
+  char* text = getTextOfFile(template_html);
 
   char* newHTML = calloc(size * 2, 1);
 
   int i;
   int newHTMLLen = 0;
-  char arrays[30][100];
-  char elements[30][100];
+  char arrays[JSON_ELEMENT_COUNT][MAX_JSON_KEY_LENGTH];
+  char elements[JSON_ELEMENT_COUNT][MAX_JSON_KEY_LENGTH];
   int elementCount = 0;
-  int elementOccuranceCount[30];
+  int elementOccuranceCount[JSON_ELEMENT_COUNT];
   int arraysCount = 0;
-  int arraysOccuranceCount[30];
+  int arraysOccuranceCount[JSON_ELEMENT_COUNT];
   for (i = 0; i < size;  ++i) {
     if (text[i] == '{' && text[i+1] == '%') {
       newHTML[newHTMLLen] = '\0';
@@ -127,7 +237,7 @@ void copyHTMLThatAreArrays(char* template_html, char* output_html, char* filenam
         i++;
       };
       i++;
-      char* array = malloc(1000);
+      char* array = malloc(MAX_JSON_VALUE_LENGTH);
       int arraySize = 0;
       while (text[i] != '}') {
         *(array + arraySize) = text[i];
@@ -168,16 +278,11 @@ void copyHTMLThatAreArrays(char* template_html, char* output_html, char* filenam
         i++;
       }
       copySegmend2[segmentSize2] = '\0';
-      FILE* json = fopen(filename_json, "r");
-      fseek(json, 0, SEEK_END);
-      long size2 = ftell(json);
-      rewind(json);
 
-      char* text2 = malloc(size2+1);
-      fread(text2, 1, size2, json);
-      text2[size2] = '\0';
-      fclose(json);
+      long size2 = getSizeOfFile(filename_json);
+      char* text2 = getTextOfFile(filename_json);
       char* tmp = text2;
+
       int count = 0;
       while ((tmp = strstr(tmp, array)) != NULL) {
         count++;
@@ -203,7 +308,7 @@ void copyHTMLThatAreArrays(char* template_html, char* output_html, char* filenam
         j++;
       }
       
-      char arrayElements[30][100];
+      char arrayElements[JSON_ELEMENT_COUNT][MAX_JSON_VALUE_LENGTH];
       for (int k = 0; k < copyCount; k++) {
         int elementSize = 0;
         while (*(tmp + j) != '"') {
@@ -244,7 +349,7 @@ void copyHTMLThatAreArrays(char* template_html, char* output_html, char* filenam
         i++;
       };
       i++;
-      char* element = malloc(1000);
+      char* element = malloc(MAX_JSON_VALUE_LENGTH);
       element[0] = '"';
       int elementSize = 1;
       int underscore = 0;
@@ -281,17 +386,11 @@ void copyHTMLThatAreArrays(char* template_html, char* output_html, char* filenam
       char* copySegmend = malloc(size);
       int segmentSize = 0;
 
-      
-      FILE* json = fopen(filename_json, "r");
-      fseek(json, 0, SEEK_END);
-      long size2 = ftell(json);
-      rewind(json);
+      long size2 = getSizeOfFile(filename_json);
+      char* text2 = getTextOfFile(filename_json);
 
-      char* text2 = malloc(size2+1);
-      fread(text2, 1, size2, json);
-      text2[size2] = '\0';
-      fclose(json);
       char* tmp = text2;
+
       int count = 0;
       while ((tmp = strstr(tmp, element)) != NULL) {
         count++;
@@ -346,14 +445,12 @@ void copyHTMLThatAreArrays(char* template_html, char* output_html, char* filenam
       free(element);
       continue;
     }
-
-
     if(text[i] == '\n') //stupid windows
       size--;
     newHTML[newHTMLLen] = text[i];
     newHTMLLen++;
   }
-  myfile = fopen(output_html, "w");
+  FILE* myfile = fopen(output_html, "w");
   fprintf(myfile, "%s\n", newHTML);
   fclose(myfile);
   free(newHTML);
