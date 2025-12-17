@@ -81,6 +81,8 @@ You can see in [data.json](templates/data.json) file example of JSON data struct
 For testing purposes, the module can be compiled and run as a standalone program:
 ```bash
 gcc tmpEngine.c -D TEST -o tmpEngine_test
+```
+```bash
 ./tmpEngine_test templates/template.html templates/data.json templates/output.html
 ```
 
