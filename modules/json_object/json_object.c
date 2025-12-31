@@ -4,9 +4,6 @@
 
 #include "json_object.h"
 
-#define MAX_OBJECT_SIZE 65536  // Maximum size of JSON object to peek
-#define MAX_PROPERTY_NAME_LENGTH 256 // Maximum length of property name
-
 static int parse_whitespace(const char** ptr, char* result, size_t result_size) {
     size_t i = 0;
     while (**ptr && isspace((unsigned char)**ptr)) {

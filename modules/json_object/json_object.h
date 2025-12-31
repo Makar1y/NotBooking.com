@@ -1,5 +1,8 @@
 #include <stdio.h>
 
+#define MAX_OBJECT_SIZE 65536  // Maximum size of JSON object to peek
+#define MAX_PROPERTY_NAME_LENGTH 256 // Maximum length of property name
+
 // Return codes
 #define JSON_PEEK_SUCCESS 0                         // Property found, value is a string/number/boolean/null
 #define JSON_PEEK_PROPERTY_NOT_FOUND 1              // Property not found in object
