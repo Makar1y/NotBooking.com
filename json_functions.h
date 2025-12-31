@@ -6,7 +6,7 @@
 /// @param name Name of hotel to remove (case sensetive)
 /// @retval 0 - all ok
 /// @retval 1 - error
-int remove_hotel(FILE* data_json, const char const* name);
+int remove_hotel_by_name(FILE* data_json, const char const* name);
 
 /// @brief Filter hotels by price range from json data file
 /// @param data_json opened data file or 0 (will be opened inside function)

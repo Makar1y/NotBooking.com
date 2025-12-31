@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 
+#include "json_functions.h"
 #include "modules/json_object/json_object.h"
 
 #define JSON_DATA "data/data.json"
@@ -14,8 +15,6 @@
 #define MAX_LINE_LENGTH 5000
 #define MAX_JSON_NAME_LENGTH 256
 
-#define JSON_NAME_SCAN_FORMAT "%[^\"]"
-
 void my_perror(char* message) {
     char error_m[MAX_LINE_LENGTH] = ERROR_PREFIX;
     strcat(error_m, " ");
@@ -23,70 +22,9 @@ void my_perror(char* message) {
     perror(error_m);
 }
 
+typedef int (*filter_callback)(FILE* file , void* user_data);
 
-int remove_hotel(FILE* data_json, const char const* name) {
-    if (NULL == data_json) {
-        data_json = fopen(JSON_DATA, "r+");
-        if (NULL == data_json) {
-            my_perror(JSON_DATA);
-            return 1;
-        }
-    }
-
-    FILE* new_file = fopen(TMP_FILENAME, "w");
-    if (NULL == new_file) {
-        my_perror(TMP_FILENAME);
-        return 1;
-    }
-
-    int line = 0;
-    int skip = 0;
-    char buffer[MAX_LINE_LENGTH];
-    char read_name[MAX_JSON_NAME_LENGTH];
-
-    while (fgets(buffer, MAX_LINE_LENGTH, data_json)) {
-        ++line;
-        char* name_start = strstr(buffer, "\"name\"");
-
-        if (name_start) {
-            name_start = strstr(name_start + 7, "\""); // 7 is length of "name":
-            int scanned = sscanf(name_start + 1, JSON_NAME_SCAN_FORMAT, read_name); 
-
-            if (scanned) {
-                if ( 0 == strcmp(read_name, name) ) {
-                    skip = 1;
-                    printf("Removing %s hotel..\n", read_name);
-                } else {
-                    skip = 0;
-                }
-            } else {
-                fprintf(stderr, "%s invalid syntax on line %d in %s\n", ERROR_PREFIX, line, JSON_DATA);
-            }
-        }
-
-        if ( 1 != skip) {
-            fputs(buffer, new_file);
-        }
-    }
-
-    fclose(new_file);
-    fclose(data_json);
-    
-    if ( 0 != remove(JSON_DATA)) {
-        fprintf(stderr, "%s Cant delete %s file for replacing to updated version.\n", ERROR_PREFIX, JSON_DATA);
-        return 1;
-    }
-
-    if ( 0 != rename(TMP_FILENAME, JSON_DATA) ) {
-        fprintf(stderr, "%s Cant rename tmp file(%s) to original path(%s).\n", ERROR_PREFIX, TMP_FILENAME, JSON_DATA);
-        return 1;
-    }
-
-    printf("Found(if any) hotels removed.\n");
-    return 0;
-}
-
-int filter_hotels_by_price(FILE* data_json, double min_price, double max_price) {
+static int filter_hotel_objects(FILE* data_json, filter_callback callback, void* user_data, int remove_first) {
     if (NULL == data_json) {
         data_json = fopen(JSON_DATA, "rb");
         if (NULL == data_json) {
@@ -95,27 +33,26 @@ int filter_hotels_by_price(FILE* data_json, double min_price, double max_price) 
         }
     }
 
-    FILE* new_file = fopen(TMP_FILENAME, "w");
+    FILE* new_file = fopen(TMP_FILENAME, "wb");
     if (NULL == new_file) {
         my_perror(TMP_FILENAME);
         fclose(data_json);
         return 1;
     }
 
-    int hotel_count = 0;
-    char buffer[MAX_LINE_LENGTH];
-    char price_str[256];
+    int object_count = 0;
+    int removed_count = 0;
+    int found_first = 0;
     
-    int found_array = 0;
-    while (fgets(buffer, MAX_LINE_LENGTH, data_json)) {
-        if (strstr(buffer, "[")) {
-            found_array = 1;
-            break;
-        }
+    char buffer[MAX_LINE_LENGTH];
+    int c;
+    do {
+        c = fgetc(data_json);
     }
+    while (c != EOF && c != '[');
 
-    if (!found_array) {
-        fprintf(stderr, "%s Could not find hotels array in %s\n", ERROR_PREFIX, JSON_DATA);
+    if (c != '[') {
+        fprintf(stderr, "%s Could not find array in %s\n", ERROR_PREFIX, JSON_DATA);
         fclose(new_file);
         fclose(data_json);
         return 1;
@@ -136,43 +73,39 @@ int filter_hotels_by_price(FILE* data_json, double min_price, double max_price) 
         }
         
         fseek(data_json, -1, SEEK_CUR);
-        
-        int ret_code = peek_json_object_property(data_json, "price", price_str, sizeof(price_str));
 
-        if (ret_code == JSON_PEEK_SUCCESS || ret_code == JSON_PEEK_PROPERTY_NOT_FOUND) {
-            double price = 0;
-            int include_hotel = 1;
-            
-            if (ret_code == JSON_PEEK_SUCCESS) {
-                price = strtod(price_str, NULL);
-                if (price < min_price || price > max_price) {
-                    include_hotel = 0;
-                }
+        int original_pos = ftell(data_json);
+        int should_keep = callback(data_json, user_data);
+        fseek(data_json, original_pos, SEEK_SET);
+
+        if (remove_first && !found_first && !should_keep) {
+            found_first = 1;
+            removed_count++;
+            int ret_code = skip_json_object(data_json);
+            if (ret_code != JSON_PEEK_SUCCESS) {
+                fprintf(stderr, "%s Error skipping object: Code %d\n", ERROR_PREFIX, ret_code);
             }
-            
-            if (include_hotel) {
-                char hotel_obj[MAX_LINE_LENGTH * 10];
-                ret_code = read_json_object(data_json, hotel_obj, sizeof(hotel_obj));
+        }
+        else if (should_keep || (remove_first && found_first)) {
+            char hotel_obj[MAX_OBJECT_SIZE];
+            int ret_code = read_json_object(data_json, hotel_obj, sizeof(hotel_obj));
+            if (ret_code == JSON_PEEK_SUCCESS) {
                 
-                if (ret_code == JSON_PEEK_SUCCESS) {
-                    if (hotel_count > 0) {
-                        fputs(",\n", new_file);
-                    }
-                    fputs("\t\t", new_file);
-                    fputs(hotel_obj, new_file);
-                    hotel_count++;
-                } else {
-                    fprintf(stderr, "%s Error reading hotel object: %d\n", ERROR_PREFIX, ret_code);
+                if (object_count > 0) {
+                    fputs(",\n", new_file);
                 }
+                fputs("\t\t", new_file);
+                fputs(hotel_obj, new_file);
+                object_count++;
             } else {
-                ret_code = skip_json_object(data_json);
-                if (ret_code != JSON_PEEK_SUCCESS) {
-                    fprintf(stderr, "%s Error skipping hotel object: %d\n", ERROR_PREFIX, ret_code);
-                }
+                fprintf(stderr, "%s Error reading object: Code %d\n", ERROR_PREFIX, ret_code);
             }
         } else {
-            fprintf(stderr, "%s Error peeking price property: %d\n", ERROR_PREFIX, ret_code);
-            skip_json_object(data_json);
+            int ret_code = skip_json_object(data_json);
+            if (ret_code != JSON_PEEK_SUCCESS) {
+                fprintf(stderr, "%s Error skipping object: Code %d\n", ERROR_PREFIX, ret_code);
+            }
+            removed_count++;
         }
     }
     
@@ -192,6 +125,71 @@ int filter_hotels_by_price(FILE* data_json, double min_price, double max_price) 
         return 1;
     }
     
-    printf("Filtered hotels by price range %.2f-%.2f. Found %d matching hotels.\n", min_price, max_price, hotel_count);
+    if (remove_first) {
+        printf("Removed first matching object. Total objects remaining: %d\n", object_count);
+    } else {
+        printf("Filtered objects. Kept: %d, Removed: %d\n", object_count, removed_count);
+    }
     return 0;
+}
+
+
+
+typedef struct {
+    const char* name;
+} HotelNameData;
+
+static int name_filter_callback(FILE* file, void* user_data) {
+    HotelNameData* data = (HotelNameData*)user_data;
+    char name_buffer[MAX_JSON_NAME_LENGTH];
+
+    int ret_code = peek_json_object_property(file, "name", name_buffer, sizeof(name_buffer));
+    if (ret_code == JSON_PEEK_SUCCESS) {
+        if (strcmp(name_buffer, data->name) == 0) {
+            return 0;
+        }
+    }
+    else {
+        fprintf(stderr, "Error peeking name property: Code %d\n", ret_code);
+    }
+    return 1;
+}
+
+int remove_hotel_by_name(FILE* data_json, const char const* name) {
+    HotelNameData filter_data = {
+        .name = name
+    };
+    return filter_hotel_objects(data_json, name_filter_callback, &filter_data, 1);
+}
+
+
+
+typedef struct {
+    double min_price;
+    double max_price;
+} HotelPriceRangeData;
+
+static int price_filter_callback(FILE* file, void* user_data) {
+    HotelPriceRangeData* data = (HotelPriceRangeData*)user_data;
+    char price_str[256];
+
+    int ret_code = peek_json_object_property(file, "price", price_str, sizeof(price_str));
+    if (ret_code == JSON_PEEK_SUCCESS) {
+        double price = strtod(price_str, NULL);
+        if (price < data->min_price || price > data->max_price) {
+            return 0;
+        }
+    }
+    else {
+        fprintf(stderr, "Error peeking price property: Code %d\n", ret_code);
+    }
+    return 1;
+}
+
+int filter_hotels_by_price(FILE* data_json, double min_price, double max_price) {
+    HotelPriceRangeData filter_data = {
+        .min_price = min_price,
+        .max_price = max_price
+    };
+    return filter_hotel_objects(data_json, price_filter_callback, &filter_data, 0);
 }
