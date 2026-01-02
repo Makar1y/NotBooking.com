@@ -1,0 +1,74 @@
+{
+  "hotels": [
+    {
+      "name": "Venus Sky Palace",
+      "location": "Venus",
+      "price": 1899999.99,
+      "amenities": [
+        "Floating Cloud Villas",
+        "Acid-Rain Shielded Terraces",
+        "Solar Wind Spa",
+        "Atmospheric Sailing Excursions",
+        "Panoramic Sun-Set Domes"
+      ],
+      "description": "Suspended high above Venus’s hostile surface in a region of stable atmospheric pressure, Venus Sky Palace is a triumph of floating architecture. Guests reside within luxurious cloud villas protected by advanced shielding that allows safe enjoyment of the planet’s golden skies and perpetual sunsets. The resort’s Solar Wind Spa harnesses Venusian energy flows to create a deeply restorative experience, while atmospheric sailing excursions offer breathtaking journeys through the planet’s luminous cloud layers.",
+      "image": "/Images/hotel6.jpg"
+    },
+    {
+      "name": "Mercury Terminator Resort",
+      "location": "Mercury",
+      "price": 1299999.50,
+      "amenities": [
+        "Thermal Balance Suites",
+        "Terminator-Line Observation Walks",
+        "Solar Flare Viewing Chambers",
+        "Regolith Thermal Baths",
+        "Helios Fine Dining"
+      ],
+      "description": "Built precisely along Mercury’s terminator line, where day meets night, this resort maintains a perfectly balanced climate in one of the solar system’s most extreme environments. Guests can walk the twilight ridge separating blistering heat and eternal cold, guided by expert astronomers. The resort combines cutting-edge thermal engineering with minimalist luxury, offering a once-in-a-lifetime opportunity to experience the raw power of the Sun from a safe and refined sanctuary.",
+      "image": "/Images/hotel7.jpg"
+    },
+    {
+      "name": "Saturn Ringview Estate",
+      "location": "Saturn Orbit",
+      "price": 2899999.00,
+      "amenities": [
+        "Ring-Edge Viewing Suites",
+        "Zero-G Symphony Hall",
+        "Particle Ice Sculpting Studio",
+        "Orbital Fine Dining Pods",
+        "Private Ring Skimming Tours"
+      ],
+      "description": "Saturn Ringview Estate orbits just above the planet’s iconic rings, offering unparalleled proximity to one of the solar system’s most mesmerizing sights. Every suite features panoramic windows overlooking rivers of ice particles shimmering in constant motion. Guests may attend orchestral performances in a zero-gravity concert hall or embark on private skimming tours through the outer ring layers. The estate blends art, science, and luxury in a setting of unmatched cosmic beauty.",
+      "image": "/Images/hotel8.jpg"
+    },
+    {
+      "name": "Pluto Nightfall Lodge",
+      "location": "Pluto",
+      "price": 749999.99,
+      "amenities": [
+        "Cryogenic Comfort Suites",
+        "Binary Star Observatory",
+        "Nitrogen Glacier Excursions",
+        "Dark Sky Meditation Chambers",
+        "Thermal Aurora Viewing Deck"
+      ],
+      "description": "At the edge of the solar system lies Pluto Nightfall Lodge, a serene refuge surrounded by endless darkness and silence. Designed for deep contemplation and astronomical observation, the lodge offers crystal-clear views of distant stars and Pluto’s glowing nitrogen glaciers. Guests can explore frozen landscapes during guided excursions or meditate beneath skies untouched by light pollution. This destination is ideal for those seeking solitude, perspective, and a profound connection to the cosmos.",
+      "image": "/Images/hotel9.jpg"
+    },
+    {
+      "name": "Io Volcanic Sanctuary",
+      "location": "Saturn",
+      "price": 1599999.00,
+      "amenities": [
+        "Lavafall Observation Lounges",
+        "Geothermal Energy Pools",
+        "Volcanology Expedition Tours",
+        "Radiation-Shielded Suites",
+        "Molten Rock Culinary Lab"
+      ],
+      "description": "Situated safely above Jupiter’s most volcanically active moon, Io Volcanic Sanctuary offers front-row access to towering lava plumes and glowing magma seas. The resort is powered entirely by geothermal energy harvested from Io’s intense geological activity. Guests can relax in heated pools while watching eruptions illuminate the surface below or join guided scientific expeditions led by planetary experts. It is a bold fusion of extreme nature and elite comfort.",
+      "image": "/Images/hotel10.jpg"
+    }
+  ]
+}

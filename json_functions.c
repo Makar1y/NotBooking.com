@@ -7,7 +7,7 @@
 #include "json_functions.h"
 #include "modules/json_object/json_object.h"
 
-#define JSON_DATA "data/data.json"
+char* JSON_DATA = "data/data.json";
 #define HTML_TEMPLATE "./data/template.html"
 #define TMP_FILENAME "./tmp_file"
 #define ERROR_PREFIX "!!! Error ->"
@@ -22,15 +22,48 @@ void my_perror(char* message) {
     perror(error_m);
 }
 
+int clear_hotel_data() {
+    FILE* data_json = fopen(JSON_DATA, "w");
+    if (NULL == data_json) {
+        my_perror(JSON_DATA);
+        return 1;
+    }
+    fprintf(data_json, "{}");
+    fclose(data_json);
+
+    return 0;
+}
+
+int read_hotel_from_file(const char* filename) {
+    size_t len = strlen(filename);
+
+    if (len < 5 || strcmp(filename + len - 5, ".json") != 0) {
+        fprintf(stderr, "%s is not a .json file\n", filename);
+        return 1;
+    }
+
+    FILE* data_json = fopen(filename, "r");
+    if (NULL == data_json) {
+        my_perror("Couldn't open this file");
+        return 1;
+    }
+    fclose(data_json);
+    JSON_DATA = malloc(strlen(filename) + 1);
+    if (!JSON_DATA) {
+        my_perror("Memory allocation failed");
+        return 1;
+    }
+    strcpy(JSON_DATA, filename);
+    return 0;
+}
+
 typedef int (*filter_callback)(FILE* file , void* user_data);
 
-static int filter_hotel_objects(FILE* data_json, filter_callback callback, void* user_data, int remove_first) {
+static int filter_hotel_objects(filter_callback callback, void* user_data, int remove_first) {
+    FILE* data_json = fopen(JSON_DATA, "rb");
     if (NULL == data_json) {
-        data_json = fopen(JSON_DATA, "rb");
-        if (NULL == data_json) {
-            my_perror(JSON_DATA);
-            return 1;
-        }
+        my_perror(JSON_DATA);
+        return 1;
     }
 
     FILE* new_file = fopen(TMP_FILENAME, "wb");
@@ -155,11 +188,11 @@ static int name_filter_callback(FILE* file, void* user_data) {
     return 1;
 }
 
-int remove_hotel_by_name(FILE* data_json, const char const* name) {
+int remove_hotel_by_name(const char const* name) {
     HotelNameData filter_data = {
         .name = name
     };
-    return filter_hotel_objects(data_json, name_filter_callback, &filter_data, 1);
+    return filter_hotel_objects(name_filter_callback, &filter_data, 1);
 }
 
 
@@ -186,10 +219,10 @@ static int price_filter_callback(FILE* file, void* user_data) {
     return 1;
 }
 
-int filter_hotels_by_price(FILE* data_json, double min_price, double max_price) {
+int filter_hotels_by_price(double min_price, double max_price) {
     HotelPriceRangeData filter_data = {
         .min_price = min_price,
         .max_price = max_price
     };
-    return filter_hotel_objects(data_json, price_filter_callback, &filter_data, 0);
+    return filter_hotel_objects(price_filter_callback, &filter_data, 0);
 }
